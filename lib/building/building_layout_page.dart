@@ -159,19 +159,16 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(
+        IconButton(
           padding: const EdgeInsets.all(0),
-          child: IconButton(
-            padding: const EdgeInsets.all(0),
-            alignment: Alignment.centerRight,
-            icon: (_isFavorited
-                ? Icon(
-                    Icons.star,
-                    color: Colors.red[500],
-                  )
-                : const Icon(Icons.star_border)),
-            onPressed: _toggleFavorite,
-          ),
+          alignment: Alignment.centerRight,
+          icon: (_isFavorited
+              ? Icon(
+                  Icons.star,
+                  color: Colors.red[500],
+                )
+              : const Icon(Icons.star_border)),
+          onPressed: _toggleFavorite,
         ),
         SizedBox(
           width: 18,
