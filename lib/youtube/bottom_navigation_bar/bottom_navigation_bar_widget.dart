@@ -9,14 +9,6 @@ class BottomNavigationBarWidget extends StatefulWidget {
 }
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
-  int _selectedIndex = 0;
-
-  void onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -50,8 +42,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
           label: 'ライブラリ',
         ),
       ],
-      onTap: onItemTapped,
-      currentIndex: _selectedIndex,
+      // currentIndex: _selectedIndex,
       fixedColor: Colors.white,
       // onTap: _onItemTapped,
       type: BottomNavigationBarType.fixed,
