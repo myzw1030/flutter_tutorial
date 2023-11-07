@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/youtube/item_categories/item_grid.dart';
 
 class ItemCategories extends StatelessWidget {
-  ItemCategories({super.key});
+  const ItemCategories({super.key});
 
-  final itemCategoriesData = [
+  static final List<Widget> itemCategoriesData = [
     const ItemGrid(
       icon: Icons.local_fire_department,
       color: Color(0xFF851a36),
