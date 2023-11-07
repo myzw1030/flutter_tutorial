@@ -13,6 +13,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       unselectedItemColor: Colors.white,
+      selectedItemColor: Colors.white,
       backgroundColor: Colors.grey.shade900,
       iconSize: 30,
       selectedFontSize: 12,
@@ -42,9 +43,6 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
           label: 'ライブラリ',
         ),
       ],
-      // currentIndex: _selectedIndex,
-      fixedColor: Colors.white,
-      // onTap: _onItemTapped,
       type: BottomNavigationBarType.fixed,
     );
   }
