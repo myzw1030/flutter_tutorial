@@ -24,7 +24,6 @@ class ResidencePage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               width: MediaQuery.of(context).size.width - 80,
-              // height: 40,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
