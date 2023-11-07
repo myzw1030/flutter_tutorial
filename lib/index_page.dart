@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/animation/animation_page.dart';
 import 'package:flutter_tutorial/building/building_layout_page.dart';
+import 'package:flutter_tutorial/mercari/mercari_page.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({super.key});
@@ -19,6 +20,10 @@ class IndexPage extends StatelessWidget {
             PageButton(
               text: 'Tutorial1.1',
               widget: AnimationPage(),
+            ),
+            PageButton(
+              text: 'Tutorial2.3',
+              widget: MercariPage(),
             ),
           ],
         ),
@@ -49,9 +54,6 @@ class PageButton extends StatelessWidget {
           ),
         );
       },
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-      ),
       child: Text(text),
     );
   }
