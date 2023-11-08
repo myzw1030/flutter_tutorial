@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_tutorial/mercari/home_page/listing_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -105,87 +106,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'assets/mercari_item_image.png',
-                        fit: BoxFit.cover,
-                        width: 80,
-                        height: 80,
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'sony a7iii',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
-                        ),
-                        Text(
-                          '￥5555.0',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.local_fire_department,
-                              color: Colors.blue,
-                            ),
-                            Text(
-                              '800人が探しています',
-                              style: TextStyle(
-                                fontSize: 15,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    const Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 10,
-                        ),
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.white,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              10,
-                            ),
-                          ),
-                        ),
-                      ),
-                      child: const Text(
-                        '出品する',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-            childCount: 10,
-          ),
-        ),
+        const ListingList(),
       ],
     );
   }
