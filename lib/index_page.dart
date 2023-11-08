@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/youtube/youtube_page.dart';
+import 'package:flutter_tutorial/animation/animation_page.dart';
+import 'package:flutter_tutorial/building/building_layout_page.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({super.key});
@@ -11,6 +13,14 @@ class IndexPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            PageButton(
+              text: 'Tutorial1',
+              widget: BuildingLayoutPage(),
+            ),
+            PageButton(
+              text: 'Tutorial1.1',
+              widget: AnimationPage(),
+            ),
             PageButton(
               text: 'YouTubeボタン',
               widget: YoutubePage(),
