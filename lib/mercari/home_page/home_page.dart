@@ -213,8 +213,8 @@ class ShortcutButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           color: Colors.white,
         ),
-        height: MediaQuery.of(context).size.width / 4,
-        width: MediaQuery.of(context).size.width / 4 - 20,
+        height: MediaQuery.sizeOf(context).width / 4,
+        width: MediaQuery.sizeOf(context).width / 4 - 20,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
