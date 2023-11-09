@@ -77,11 +77,12 @@ class _AsyncPageState extends State<AsyncPage> {
             });
           }
         },
-        backgroundColor: Colors.green,
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.add),
+            Icon(
+              Icons.add,
+            ),
           ],
         ),
       ),

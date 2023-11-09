@@ -52,9 +52,10 @@ class _EditDialogState extends State<EditDialog> {
                 decoration: const InputDecoration(
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelText: '名前',
+                  labelStyle: TextStyle(fontSize: 20),
                 ),
                 style: const TextStyle(
-                  fontSize: 24,
+                  fontSize: 22,
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -68,9 +69,10 @@ class _EditDialogState extends State<EditDialog> {
                 decoration: const InputDecoration(
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelText: '年齢',
+                  labelStyle: TextStyle(fontSize: 20),
                 ),
                 style: const TextStyle(
-                  fontSize: 24,
+                  fontSize: 22,
                 ),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -88,9 +90,10 @@ class _EditDialogState extends State<EditDialog> {
                 decoration: const InputDecoration(
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelText: '誕生日',
+                  labelStyle: TextStyle(fontSize: 20),
                 ),
                 style: const TextStyle(
-                  fontSize: 24,
+                  fontSize: 22,
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
