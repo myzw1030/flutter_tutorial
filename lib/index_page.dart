@@ -59,9 +59,6 @@ class PageButton extends StatelessWidget {
           ),
         );
       },
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-      ),
       child: Text(text),
     );
   }
