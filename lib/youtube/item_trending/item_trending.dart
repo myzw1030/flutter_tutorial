@@ -4,7 +4,7 @@ import 'package:flutter_tutorial/youtube/item_trending/trend_info.dart';
 class ItemTrending extends StatelessWidget {
   const ItemTrending({super.key});
 
-  final List<TrendInfo> _dummyMovieData = const [
+  static const List<TrendInfo> _dummyMovieData = [
     TrendInfo(
       imagePath: 'assets/trending_img.png',
       iconPath: 'assets/trending_icon.jpg',

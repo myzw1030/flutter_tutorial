@@ -15,17 +15,17 @@ class YoutubePage extends StatefulWidget {
 class _YoutubePageState extends State<YoutubePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.black,
-      appBar: const AppBarWidget(),
+      appBar: AppBarWidget(),
       body: CustomScrollView(
         slivers: [
           ItemCategories(),
-          const ItemTrendingHeader(),
+          ItemTrendingHeader(),
           ItemTrending(),
         ],
       ),
-      bottomNavigationBar: const BottomNavigationBarWidget(),
+      bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
 }
