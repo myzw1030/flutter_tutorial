@@ -58,24 +58,20 @@ class _AsyncPageState extends State<AsyncPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog<Map<String, String>>(
+          await showDialog<Map<String, String>>(
             context: context,
             builder: (context) {
               // ボタンのみでダイアログを閉じるように
               return WillPopScope(
-                child: const EditDialog(),
+                child: EditDialog(
+                  onSave: (String name, String age, String birthday) async {
+                    await _getSavedData();
+                  },
+                ),
                 onWillPop: () async => false,
               );
             },
           );
-          // 編集フィールド(result)が値を持っていたら再描画
-          if (result != null) {
-            setState(() {
-              _name = result['name'] ?? _name;
-              _age = result['age'] ?? _age;
-              _birthday = result['birthday'] ?? _birthday;
-            });
-          }
         },
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,

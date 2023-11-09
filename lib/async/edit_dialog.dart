@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditDialog extends StatefulWidget {
-  const EditDialog({super.key});
+  const EditDialog({
+    super.key,
+    required this.onSave,
+  });
+
+  final Future<void> Function(
+    String name,
+    String age,
+    String birthday,
+  ) onSave;
 
   @override
   State<EditDialog> createState() => _EditDialogState();
@@ -128,17 +137,20 @@ class _EditDialogState extends State<EditDialog> {
                   ),
                   const SizedBox(width: 8),
                   ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       // バリデーションチェック
                       if (_formKey.currentState!.validate()) {
-                        _saveData();
-                        final result = {
-                          'name': nameController.text,
-                          'age': ageController.text,
-                          'birthday': birthdayController.text,
-                        };
-                        // バリデーションが通ればダイアログを閉じる
-                        Navigator.of(context).pop(result);
+                        await _saveData();
+                        // 保存処理成功した後入力情報を渡す
+                        await widget.onSave(
+                          nameController.text,
+                          ageController.text,
+                          birthdayController.text,
+                        );
+                        // 非同期処理の完了後ダイアログを閉じる
+                        if (mounted) {
+                          Navigator.pop(context);
+                        }
                       }
                     },
                     child: const Text(
