@@ -31,6 +31,14 @@ class _EditDialogState extends State<EditDialog> {
   }
 
   @override
+  void dispose() {
+    nameController.dispose();
+    ageController.dispose();
+    birthdayController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Dialog(
       child: Padding(
