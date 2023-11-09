@@ -1,134 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/async/edit_dialog.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class AsyncPage extends StatelessWidget {
+class AsyncPage extends StatefulWidget {
   const AsyncPage({super.key});
+
+  @override
+  State<AsyncPage> createState() => _AsyncPageState();
+}
+
+class _AsyncPageState extends State<AsyncPage> {
+  // 初期値
+  String _name = '未設定';
+  String _age = '未設定';
+  String _birthday = '未設定';
+  // SharedPreferencesのインスタンスを取得
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  // 保存されているデータ
+  Future<void> _getSavedData() async {
+    final prefs = await _prefs;
+    setState(() {
+      _name = prefs.getString(nameKey) ?? _name;
+      _age = prefs.getString(ageKey) ?? _age;
+      _birthday = prefs.getString(birthdayKey) ?? _birthday;
+    });
+  }
+
+  // 初期表示時に保存されているデータを呼び出す
+  @override
+  void initState() {
+    super.initState();
+    _getSavedData();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '名前：未設定',
+              '名前：$_name',
+              style: const TextStyle(fontSize: 20),
             ),
             Text(
-              '年齢：未設定',
+              '年齢：$_age',
+              style: const TextStyle(fontSize: 20),
             ),
             Text(
-              '誕生日：未設定',
+              '誕生日：$_birthday',
+              style: const TextStyle(fontSize: 20),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
+        onPressed: () async {
+          final result = await showDialog<Map<String, String>>(
             context: context,
-            builder: (_) {
+            builder: (context) {
+              // ボタンのみでダイアログを閉じるように
               return WillPopScope(
                 child: const EditDialog(),
                 onWillPop: () async => false,
               );
             },
           );
+          // 編集フィールド(result)が値を持っていたら再描画
+          if (result != null) {
+            setState(() {
+              _name = result['name'] ?? _name;
+              _age = result['age'] ?? _age;
+              _birthday = result['birthday'] ?? _birthday;
+            });
+          }
         },
         backgroundColor: Colors.green,
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.add),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// 編集ダイアログ
-class EditDialog extends StatelessWidget {
-  const EditDialog({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      child: Padding(
-        padding: const EdgeInsets.all(30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text(
-              '登録',
-              style: TextStyle(
-                fontSize: 26,
-              ),
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              decoration: const InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                labelText: '名前',
-              ),
-              style: const TextStyle(
-                fontSize: 24,
-              ),
-              onSubmitted: (String value) async {
-                print('value');
-              },
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                labelText: '年齢',
-              ),
-              style: const TextStyle(
-                fontSize: 24,
-              ),
-              onSubmitted: (String value) async {
-                print('value');
-              },
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                labelText: '誕生日',
-              ),
-              style: const TextStyle(
-                fontSize: 24,
-              ),
-              onSubmitted: (String value) async {
-                print('value');
-              },
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Cancel',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    '保存',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            )
           ],
         ),
       ),
