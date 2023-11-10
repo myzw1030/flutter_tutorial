@@ -423,7 +423,7 @@ QiitaUser _$QiitaUserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QiitaUser {
   @JsonKey(name: 'profile_image_url')
-  String? get profile_image_url => throw _privateConstructorUsedError;
+  String? get profileImageUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -436,7 +436,7 @@ abstract class $QiitaUserCopyWith<$Res> {
   factory $QiitaUserCopyWith(QiitaUser value, $Res Function(QiitaUser) then) =
       _$QiitaUserCopyWithImpl<$Res, QiitaUser>;
   @useResult
-  $Res call({@JsonKey(name: 'profile_image_url') String? profile_image_url});
+  $Res call({@JsonKey(name: 'profile_image_url') String? profileImageUrl});
 }
 
 /// @nodoc
@@ -452,12 +452,12 @@ class _$QiitaUserCopyWithImpl<$Res, $Val extends QiitaUser>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profile_image_url = freezed,
+    Object? profileImageUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      profile_image_url: freezed == profile_image_url
-          ? _value.profile_image_url
-          : profile_image_url // ignore: cast_nullable_to_non_nullable
+      profileImageUrl: freezed == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -471,7 +471,7 @@ abstract class _$$QiitaUserImplCopyWith<$Res>
       __$$QiitaUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'profile_image_url') String? profile_image_url});
+  $Res call({@JsonKey(name: 'profile_image_url') String? profileImageUrl});
 }
 
 /// @nodoc
@@ -485,12 +485,12 @@ class __$$QiitaUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profile_image_url = freezed,
+    Object? profileImageUrl = freezed,
   }) {
     return _then(_$QiitaUserImpl(
-      profile_image_url: freezed == profile_image_url
-          ? _value.profile_image_url
-          : profile_image_url // ignore: cast_nullable_to_non_nullable
+      profileImageUrl: freezed == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -500,18 +500,18 @@ class __$$QiitaUserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QiitaUserImpl implements _QiitaUser {
   const _$QiitaUserImpl(
-      {@JsonKey(name: 'profile_image_url') this.profile_image_url});
+      {@JsonKey(name: 'profile_image_url') this.profileImageUrl});
 
   factory _$QiitaUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$QiitaUserImplFromJson(json);
 
   @override
   @JsonKey(name: 'profile_image_url')
-  final String? profile_image_url;
+  final String? profileImageUrl;
 
   @override
   String toString() {
-    return 'QiitaUser(profile_image_url: $profile_image_url)';
+    return 'QiitaUser(profileImageUrl: $profileImageUrl)';
   }
 
   @override
@@ -519,13 +519,13 @@ class _$QiitaUserImpl implements _QiitaUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QiitaUserImpl &&
-            (identical(other.profile_image_url, profile_image_url) ||
-                other.profile_image_url == profile_image_url));
+            (identical(other.profileImageUrl, profileImageUrl) ||
+                other.profileImageUrl == profileImageUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, profile_image_url);
+  int get hashCode => Object.hash(runtimeType, profileImageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -543,15 +543,15 @@ class _$QiitaUserImpl implements _QiitaUser {
 
 abstract class _QiitaUser implements QiitaUser {
   const factory _QiitaUser(
-      {@JsonKey(name: 'profile_image_url')
-      final String? profile_image_url}) = _$QiitaUserImpl;
+          {@JsonKey(name: 'profile_image_url') final String? profileImageUrl}) =
+      _$QiitaUserImpl;
 
   factory _QiitaUser.fromJson(Map<String, dynamic> json) =
       _$QiitaUserImpl.fromJson;
 
   @override
   @JsonKey(name: 'profile_image_url')
-  String? get profile_image_url;
+  String? get profileImageUrl;
   @override
   @JsonKey(ignore: true)
   _$$QiitaUserImplCopyWith<_$QiitaUserImpl> get copyWith =>

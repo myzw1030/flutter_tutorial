@@ -73,7 +73,7 @@ class _QiitaList extends StatelessWidget {
               child: Row(
                 children: [
                   Image.network(
-                    item.user?.profile_image_url ?? '',
+                    item.user?.profileImageUrl ?? '',
                     height: 64,
                   ),
                   const SizedBox(width: 16),

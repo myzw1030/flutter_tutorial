@@ -29,7 +29,7 @@ class QiitaItem with _$QiitaItem {
 @freezed
 class QiitaUser with _$QiitaUser {
   const factory QiitaUser({
-    @JsonKey(name: 'profile_image_url') String? profile_image_url,
+    @JsonKey(name: 'profile_image_url') String? profileImageUrl,
   }) = _QiitaUser;
 
   factory QiitaUser.fromJson(Map<String, dynamic> json) =>

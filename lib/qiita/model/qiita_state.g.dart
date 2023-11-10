@@ -24,10 +24,10 @@ Map<String, dynamic> _$$QiitaItemImplToJson(_$QiitaItemImpl instance) =>
 
 _$QiitaUserImpl _$$QiitaUserImplFromJson(Map<String, dynamic> json) =>
     _$QiitaUserImpl(
-      profile_image_url: json['profile_image_url'] as String?,
+      profileImageUrl: json['profile_image_url'] as String?,
     );
 
 Map<String, dynamic> _$$QiitaUserImplToJson(_$QiitaUserImpl instance) =>
     <String, dynamic>{
-      'profile_image_url': instance.profile_image_url,
+      'profile_image_url': instance.profileImageUrl,
     };
