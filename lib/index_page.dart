@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/youtube/youtube_page.dart';
 import 'package:flutter_tutorial/animation/animation_page.dart';
 import 'package:flutter_tutorial/building/building_layout_page.dart';
 import 'package:flutter_tutorial/mercari/mercari_page.dart';
+import 'package:flutter_tutorial/residence/residence_page.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({super.key});
@@ -20,6 +22,14 @@ class IndexPage extends StatelessWidget {
             PageButton(
               text: 'Tutorial1.1',
               widget: AnimationPage(),
+            ),
+            PageButton(
+              text: 'YouTubeボタン',
+              widget: YoutubePage(),
+            ),
+            PageButton(
+              text: 'Tutorial2.2',
+              widget: ResidencePage(),
             ),
             PageButton(
               text: 'Tutorial2.3',
