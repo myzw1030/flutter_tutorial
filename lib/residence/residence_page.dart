@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/residence/item_property_info/item_property_info.dart';
+import 'package:flutter_tutorial/residence/item_property/item_property_list.dart';
 import 'package:flutter_tutorial/residence/item_recommend/item_recommend.dart';
 
 class ResidencePage extends StatelessWidget {
@@ -107,7 +107,7 @@ class ResidencePage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: SizedBox(height: 16),
               ),
-              ItemPropertyInfo(),
+              ItemPropertyList(),
             ],
           ),
         ),
