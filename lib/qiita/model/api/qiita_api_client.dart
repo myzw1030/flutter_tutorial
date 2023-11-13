@@ -8,6 +8,9 @@ part 'qiita_api_client.g.dart';
 abstract class QiitaApiClient {
   factory QiitaApiClient(Dio dio, {String baseUrl}) = _QiitaApiClient;
 
-  @GET('/tags/{tag}/items')
-  Future<List<QiitaItem>> fetchQiitaItems(@Path('tag') String tag);
+  @GET('/tags/{tag}/items/')
+  Future<List<QiitaItem>> fetchQiitaItems(
+    @Path('tag') String tag,
+    @Query('per_page') int perPage,
+  );
 }

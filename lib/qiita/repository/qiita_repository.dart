@@ -24,7 +24,7 @@ class QiitaRepository {
 
   QiitaApiClient get _apiClient => _ref.read(qiitaApiClientProvider);
 
-  Future<List<QiitaItem>> fetchQiitaItems(String tag) async {
-    return _apiClient.fetchQiitaItems(tag);
+  Future<List<QiitaItem>> fetchQiitaItems(String tag, int perPage) async {
+    return _apiClient.fetchQiitaItems(tag, perPage);
   }
 }

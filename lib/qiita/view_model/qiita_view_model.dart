@@ -14,10 +14,11 @@ class QiitaViewModel extends StateNotifier<QiitaState> {
 
   QiitaRepository get _qiitaRepository => _ref.read(qiitaRepositoryProvider);
 
-  Future<void> fetchQiitaItems(String tag) async {
+  // 取得記事初期値設定しておく
+  Future<void> fetchQiitaItems(String tag, {int perPage = 10}) async {
     state = state.copyWith(isLoading: true);
 
-    final qiitaItems = await _qiitaRepository.fetchQiitaItems(tag);
+    final qiitaItems = await _qiitaRepository.fetchQiitaItems(tag, perPage);
 
     if (!mounted) {
       return;
