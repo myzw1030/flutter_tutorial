@@ -98,14 +98,14 @@ class _QiitaList extends StatelessWidget {
 
 class _SearchButtons extends StatelessWidget {
   const _SearchButtons({
-    required this.onTapFlutter,
-    required this.onTapAndroid,
-    required this.onTapiOS,
+    this.onTapFlutter,
+    this.onTapAndroid,
+    this.onTapiOS,
   });
 
-  final VoidCallback onTapFlutter;
-  final VoidCallback onTapAndroid;
-  final VoidCallback onTapiOS;
+  final VoidCallback? onTapFlutter;
+  final VoidCallback? onTapAndroid;
+  final VoidCallback? onTapiOS;
 
   @override
   Widget build(BuildContext context) {
