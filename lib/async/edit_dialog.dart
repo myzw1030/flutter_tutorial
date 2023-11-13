@@ -39,6 +39,24 @@ class _EditDialogState extends State<EditDialog> {
     await prefs.setString(birthdayKey, birthdayController.text);
   }
 
+  // バリデーション
+  String? validateText(String? value) {
+    if (value == null || value.isEmpty) {
+      return '何か文字を入力してください';
+    }
+    return null;
+  }
+
+  String? validateNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return '何か文字を入力してください';
+    }
+    if (int.tryParse(value) == null) {
+      return '数値を入力してください';
+    }
+    return null;
+  }
+
   @override
   void dispose() {
     nameController.dispose();
@@ -65,60 +83,20 @@ class _EditDialogState extends State<EditDialog> {
                 ),
               ),
               const SizedBox(height: 12),
-              TextFormField(
-                decoration: const InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  labelText: '名前',
-                  labelStyle: TextStyle(fontSize: 20),
-                ),
-                style: const TextStyle(
-                  fontSize: 22,
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return '何か文字を入力してください';
-                  }
-                  return null;
-                },
+              _EditTextFormField(
+                label: '名前',
                 controller: nameController,
+                validator: validateText,
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  labelText: '年齢',
-                  labelStyle: TextStyle(fontSize: 20),
-                ),
-                style: const TextStyle(
-                  fontSize: 22,
-                ),
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return '何か文字を入力してください';
-                  }
-                  if (int.tryParse(value) == null) {
-                    return '数値を入力してください';
-                  }
-                  return null;
-                },
+              _EditTextFormField(
+                label: '年齢',
                 controller: ageController,
+                validator: validateNumber,
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  labelText: '誕生日',
-                  labelStyle: TextStyle(fontSize: 20),
-                ),
-                style: const TextStyle(
-                  fontSize: 22,
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return '何か文字を入力してください';
-                  }
-                  return null;
-                },
+              _EditTextFormField(
+                label: '誕生日',
                 controller: birthdayController,
+                validator: validateText,
               ),
               const SizedBox(height: 12),
               Row(
@@ -166,6 +144,34 @@ class _EditDialogState extends State<EditDialog> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _EditTextFormField extends StatelessWidget {
+  const _EditTextFormField({
+    this.validator,
+    this.controller,
+    required this.label,
+  });
+
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      decoration: InputDecoration(
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        labelText: label,
+        labelStyle: const TextStyle(fontSize: 20),
+      ),
+      style: const TextStyle(
+        fontSize: 22,
+      ),
+      validator: validator,
     );
   }
 }
