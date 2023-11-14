@@ -29,11 +29,6 @@ class QiitaRepository {
   QiitaApiClient get _apiClient => _ref.read(qiitaApiClientProvider);
 
   Future<List<QiitaItem>> fetchQiitaItems(String tag) async {
-    try {
-      return await _apiClient.fetchQiitaItems(tag);
-    } on DioException catch (e) {
-      print('$e');
-      return [];
-    }
+    return _apiClient.fetchQiitaItems(tag);
   }
 }
