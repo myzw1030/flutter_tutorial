@@ -21,12 +21,9 @@ class _QiitaApiClient implements QiitaApiClient {
   String? baseUrl;
 
   @override
-  Future<List<QiitaItem>> fetchQiitaItems(
-    String tag,
-    int perPage,
-  ) async {
+  Future<List<QiitaItem>> fetchQiitaItems(String tag) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'per_page': perPage};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
@@ -37,7 +34,7 @@ class _QiitaApiClient implements QiitaApiClient {
     )
             .compose(
               _dio.options,
-              '/tags/${tag}/items/',
+              '/tags/${tag}/items',
               queryParameters: queryParameters,
               data: _data,
             )
