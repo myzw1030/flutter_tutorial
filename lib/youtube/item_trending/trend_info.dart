@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/youtube/model/trending_item.dart';
 
 class TrendInfo extends StatelessWidget {
   const TrendInfo({
     super.key,
-    required this.imagePath,
-    required this.iconPath,
-    required this.title,
-    required this.subTitle,
+    required this.article,
   });
 
-  final String imagePath;
-  final String iconPath;
-  final String title;
-  final String subTitle;
+  final TrendingItem article;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Colors.grey.shade900,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
-              Image.asset(
-                imagePath,
+              Image.network(
+                article.imagePath!,
                 fit: BoxFit.cover,
               ),
               Positioned(
@@ -51,7 +46,7 @@ class TrendInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Padding(
@@ -61,8 +56,8 @@ class TrendInfo extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(22),
-                  child: Image.asset(
-                    iconPath,
+                  child: Image.network(
+                    article.iconPath!,
                     width: 44,
                     height: 44,
                     fit: BoxFit.fill,
@@ -71,12 +66,12 @@ class TrendInfo extends StatelessWidget {
                 const SizedBox(width: 8),
                 Flexible(
                   child: Container(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: const EdgeInsets.only(right: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          title,
+                          article.title!,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
@@ -84,7 +79,9 @@ class TrendInfo extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          subTitle,
+                          '${article.channelName}・'
+                          '${article.numOfViews}万回視聴・'
+                          '${article.daysAgo}日前',
                           style: const TextStyle(
                             color: Colors.grey,
                           ),
@@ -97,10 +94,10 @@ class TrendInfo extends StatelessWidget {
                   Icons.more_vert,
                   size: 30,
                   color: Colors.white,
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

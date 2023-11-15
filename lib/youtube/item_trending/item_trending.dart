@@ -1,34 +1,51 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/youtube/item_trending/trend_info.dart';
+import 'package:flutter_tutorial/youtube/model/api/trending_api_client.dart';
+import 'package:flutter_tutorial/youtube/model/trending_item.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-class ItemTrending extends StatelessWidget {
+class ItemTrending extends StatefulWidget {
   const ItemTrending({super.key});
 
-  final List<TrendInfo> _dummyMovieData = const [
-    TrendInfo(
-      imagePath: 'assets/trending_img.png',
-      iconPath: 'assets/trending_icon.jpg',
-      title: 'This is ARASHI LIVE 2020.12.31" Digest Movie',
-      subTitle: 'ARASHI・127万回視聴・1日前',
-    ),
-    TrendInfo(
-      imagePath: 'assets/trending_img02.png',
-      iconPath: 'assets/trending_icon02.png',
-      title: 'lofi hip hop radio 📚 - beats to relax/study to',
-      subTitle: 'lofi hip hop・200万回視聴・2日前',
-    ),
-    TrendInfo(
-      imagePath: 'assets/trending_img03.png',
-      iconPath: 'assets/trending_icon03.png',
-      title: 'Chill Drive - Lofi hip hop mix ~ Stress Relief, Chill Music',
-      subTitle: 'Chill Drive・321万回視聴・2日前',
-    ),
-  ];
+  @override
+  State<ItemTrending> createState() => _ItemTrendingState();
+}
 
+class _ItemTrendingState extends State<ItemTrending> {
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildListDelegate(_dummyMovieData),
+    return FutureBuilder(
+      future: fetchTrendingItems(),
+      builder: (BuildContext context, snapshot) {
+        // 通信中はローディング
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const SliverFillRemaining(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        } else {
+          return SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, index) {
+                return TrendInfo(
+                  article: snapshot.data![index],
+                );
+              },
+              childCount: snapshot.data!.length,
+            ),
+          );
+        }
+      },
     );
+  }
+
+  // API
+  Future<List<TrendingItem>> fetchTrendingItems() async {
+    final dio = Dio();
+    dio.interceptors.add(PrettyDioLogger());
+    final client = TrendingApiClient(dio);
+    return client.fetchTrendingItems();
   }
 }
