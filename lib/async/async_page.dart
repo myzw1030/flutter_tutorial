@@ -73,13 +73,8 @@ class _AsyncPageState extends State<AsyncPage> {
             },
           );
         },
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.add,
-            ),
-          ],
+        child: const Icon(
+          Icons.add,
         ),
       ),
     );
