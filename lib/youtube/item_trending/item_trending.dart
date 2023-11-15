@@ -13,10 +13,18 @@ class ItemTrending extends StatefulWidget {
 }
 
 class _ItemTrendingState extends State<ItemTrending> {
+  late Future<List<TrendingItem>> _data;
+
+  @override
+  void initState() {
+    super.initState();
+    _data = fetchTrendingItems();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: fetchTrendingItems(),
+      future: _data,
       builder: (BuildContext context, snapshot) {
         // 通信中はローディング
         if (snapshot.connectionState == ConnectionState.waiting) {
