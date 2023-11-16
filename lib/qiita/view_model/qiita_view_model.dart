@@ -46,7 +46,7 @@ class QiitaViewModel extends StateNotifier<QiitaState> {
   }
 
   // ホームに戻る処理
-  Future<void> onBackHome() async {
+  void onBackHome() {
     state = state.copyWith(
       isLoading: false,
       isReadyData: false,
