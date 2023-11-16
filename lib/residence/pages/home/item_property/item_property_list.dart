@@ -8,7 +8,7 @@ class ItemPropertyList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final fetchItems = ref.watch(propertyItemListProvider);
+    final fetchItems = ref.watch(propertyItemProvider);
     return fetchItems.when(
       data: (data) {
         return SliverList(
