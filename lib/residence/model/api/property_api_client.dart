@@ -9,5 +9,5 @@ abstract class PropertyApiClient {
   factory PropertyApiClient(Dio dio, {String baseUrl}) = _PropertyApiClient;
 
   @GET('residence/index.json')
-  Future<List<PropertyItem>> fetchTrendingItems();
+  Future<List<PropertyItem>> fetchPropertyItems();
 }

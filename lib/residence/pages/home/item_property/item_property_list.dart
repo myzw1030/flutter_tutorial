@@ -1,56 +1,34 @@
-import 'package:dio/dio.dart';
-import 'package:flutter_tutorial/residence/model/api/property_api_client.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tutorial/residence/pages/home/home_page_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/residence/model/property_item.dart';
 import 'package:flutter_tutorial/residence/pages/home/item_property/item_property_info.dart';
 
-class ItemPropertyList extends StatefulWidget {
+class ItemPropertyList extends ConsumerWidget {
   const ItemPropertyList({super.key});
 
   @override
-  State<ItemPropertyList> createState() => _ItemPropertyListState();
-}
-
-class _ItemPropertyListState extends State<ItemPropertyList> {
-  late Future<List<PropertyItem>> _data;
-
-  @override
-  void initState() {
-    super.initState();
-    _data = fetchTrendingItems();
-  }
-
-  Future<List<PropertyItem>> fetchTrendingItems() async {
-    final dio = Dio();
-    dio.interceptors.add(PrettyDioLogger());
-    final client = PropertyApiClient(dio);
-    return client.fetchTrendingItems();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _data,
-      builder: (BuildContext context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const SliverFillRemaining(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        } else {
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, index) {
-                return ItemPropertyInfo(
-                  propertyItem: snapshot.data![index],
-                );
-              },
-              childCount: snapshot.data!.length,
-            ),
-          );
-        }
+  Widget build(BuildContext context, WidgetRef ref) {
+    final fetchItems = ref.watch(propertyItemListProvider);
+    return fetchItems.when(
+      data: (data) {
+        return SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, index) {
+              return ItemPropertyInfo(
+                propertyItem: data[index],
+              );
+            },
+            childCount: data.length,
+          ),
+        );
+      },
+      error: (error, stack) => const Text('error'),
+      loading: () {
+        return const SliverFillRemaining(
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
       },
     );
   }

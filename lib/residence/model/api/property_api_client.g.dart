@@ -21,7 +21,7 @@ class _PropertyApiClient implements PropertyApiClient {
   String? baseUrl;
 
   @override
-  Future<List<PropertyItem>> fetchTrendingItems() async {
+  Future<List<PropertyItem>> fetchPropertyItems() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
