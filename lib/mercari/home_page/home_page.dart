@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -121,7 +121,7 @@ class ShortcutButton extends StatelessWidget {
     required this.text,
   });
 
-  final Function() onTap;
+  final void Function() onTap;
   final IconData icon;
   final String text;
 

@@ -58,7 +58,7 @@ class ItemRecommend extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
             const SizedBox(height: 10),
@@ -101,7 +101,7 @@ class ItemRecommend extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

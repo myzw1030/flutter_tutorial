@@ -59,7 +59,7 @@ class PageButton extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
+          MaterialPageRoute<double>(
             builder: (context) => widget,
           ),
         );

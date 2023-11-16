@@ -43,7 +43,6 @@ class ItemPropertyInfo extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(16),
-                      topRight: Radius.zero,
                     ),
                     child: Image.asset(
                       imagePath.isNotEmpty
@@ -58,7 +57,6 @@ class ItemPropertyInfo extends StatelessWidget {
                 Expanded(
                   child: ClipRRect(
                     borderRadius: const BorderRadius.only(
-                      topLeft: Radius.zero,
                       topRight: Radius.circular(16),
                     ),
                     child: Image.asset(
