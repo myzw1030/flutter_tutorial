@@ -9,7 +9,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.grey.shade900,
       automaticallyImplyLeading: false,
       title: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
             'assets/youtube_logo.png',

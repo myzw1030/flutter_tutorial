@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/residence/item_property_info/item_property_info.dart';
+import 'package:flutter_tutorial/residence/item_property/item_property_list.dart';
 import 'package:flutter_tutorial/residence/item_recommend/item_recommend.dart';
 
 class ResidencePage extends StatelessWidget {
-  const ResidencePage({super.key});
+  const ResidencePage({super.key, int selectedIndex = 0})
+      : _selectedIndex = selectedIndex;
 
-  final int _selectedIndex = 0;
-
+  final int _selectedIndex;
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -107,7 +107,7 @@ class ResidencePage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: SizedBox(height: 16),
               ),
-              ItemPropertyInfo(),
+              ItemPropertyList(),
             ],
           ),
         ),

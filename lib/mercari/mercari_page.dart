@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/mercari/home_page/home_page.dart';
 
 class MercariPage extends StatelessWidget {
-  const MercariPage({super.key});
+  const MercariPage({super.key, int selectedIndex = 0})
+      : _selectedIndex = selectedIndex;
 
-  final int _selectedIndex = 0;
-  final _pageWidgets = const [
+  final int _selectedIndex;
+  static const _pageWidgets = [
     HomePage(),
   ];
 
