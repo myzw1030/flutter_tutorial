@@ -34,7 +34,6 @@ class QiitaPage extends ConsumerWidget {
                       onTapiOS: () => fetchItems('iOS'),
                     ),
             ),
-            // const QiitaList(),
             Visibility(
               visible: state.isLoading,
               child: const ColoredBox(
