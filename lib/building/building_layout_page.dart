@@ -64,20 +64,20 @@ class ButtonSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
+    final color = Theme.of(context).primaryColor;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildButtonColumn(color: color, icon: Icons.call, label: 'CALL'),
-        _buildButtonColumn(color: color, icon: Icons.near_me, label: 'ROUTE'),
-        _buildButtonColumn(color: color, icon: Icons.share, label: 'SHARE'),
+        _BuildButtonColumn(color: color, icon: Icons.call, label: 'CALL'),
+        _BuildButtonColumn(color: color, icon: Icons.near_me, label: 'ROUTE'),
+        _BuildButtonColumn(color: color, icon: Icons.share, label: 'SHARE'),
       ],
     );
   }
 }
 
-class _buildButtonColumn extends StatelessWidget {
-  const _buildButtonColumn({
+class _BuildButtonColumn extends StatelessWidget {
+  const _BuildButtonColumn({
     required this.color,
     required this.icon,
     required this.label,
@@ -160,7 +160,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
       mainAxisSize: MainAxisSize.min,
       children: [
         IconButton(
-          padding: const EdgeInsets.all(0),
+          padding: EdgeInsets.zero,
           alignment: Alignment.centerRight,
           icon: (_isFavorited
               ? Icon(

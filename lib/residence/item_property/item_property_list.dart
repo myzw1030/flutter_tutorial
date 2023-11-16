@@ -4,7 +4,7 @@ import 'package:flutter_tutorial/residence/item_property/item_property_info.dart
 class ItemPropertyList extends StatelessWidget {
   const ItemPropertyList({super.key});
 
-  final List<ItemPropertyInfo> _propertyData = const [
+  static const List<ItemPropertyInfo> _propertyData = [
     ItemPropertyInfo(
       imagePath: 'residence_no_image.png',
       imagePath2: 'residence_property_image.png',

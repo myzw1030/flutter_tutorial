@@ -3,10 +3,10 @@ import 'package:flutter_tutorial/residence/item_property/item_property_list.dart
 import 'package:flutter_tutorial/residence/item_recommend/item_recommend.dart';
 
 class ResidencePage extends StatelessWidget {
-  const ResidencePage({super.key});
+  const ResidencePage({super.key, int selectedIndex = 0})
+      : _selectedIndex = selectedIndex;
 
-  final int _selectedIndex = 0;
-
+  final int _selectedIndex;
   @override
   Widget build(BuildContext context) {
     return Theme(

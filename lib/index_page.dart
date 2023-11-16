@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/async/async_page.dart';
 import 'package:flutter_tutorial/youtube/youtube_page.dart';
 import 'package:flutter_tutorial/animation/animation_page.dart';
 import 'package:flutter_tutorial/building/building_layout_page.dart';
@@ -35,6 +36,10 @@ class IndexPage extends StatelessWidget {
               text: 'Tutorial2.3',
               widget: MercariPage(),
             ),
+            PageButton(
+              text: 'Async',
+              widget: AsyncPage(),
+            ),
           ],
         ),
       ),
@@ -59,7 +64,7 @@ class PageButton extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
+          MaterialPageRoute<double>(
             builder: (context) => widget,
           ),
         );
