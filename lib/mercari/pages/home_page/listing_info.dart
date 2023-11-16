@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/mercari/model/listing_item.dart';
 
 class ListingInfo extends StatelessWidget {
   const ListingInfo({
     super.key,
-    required this.imagePath,
-    required this.title,
-    required this.price,
-    required this.userCount,
+    required this.listingItem,
   });
-
-  final String imagePath;
-  final String title;
-  final double price;
-  final int userCount;
+  final ListingItem listingItem;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +16,8 @@ class ListingInfo extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              'assets/$imagePath',
+            child: Image.network(
+              listingItem.imagePath!,
               fit: BoxFit.cover,
               width: 80,
               height: 80,
@@ -34,13 +28,13 @@ class ListingInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                listingItem.title!,
                 style: const TextStyle(
                   fontSize: 15,
                 ),
               ),
               Text(
-                '￥$price',
+                '￥${listingItem.price}',
                 style: const TextStyle(
                   fontSize: 15,
                 ),
@@ -52,7 +46,7 @@ class ListingInfo extends StatelessWidget {
                     color: Colors.blue,
                   ),
                   Text(
-                    '$userCount人が探しています',
+                    '${listingItem.userCount}人が探しています',
                     style: const TextStyle(
                       fontSize: 15,
                     ),
