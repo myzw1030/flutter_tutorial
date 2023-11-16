@@ -16,7 +16,7 @@ class TrendInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Colors.grey.shade900,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class TrendInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Padding(
@@ -71,7 +71,7 @@ class TrendInfo extends StatelessWidget {
                 const SizedBox(width: 8),
                 Flexible(
                   child: Container(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: const EdgeInsets.only(right: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -97,10 +97,10 @@ class TrendInfo extends StatelessWidget {
                   Icons.more_vert,
                   size: 30,
                   color: Colors.white,
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

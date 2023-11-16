@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/qiita/view/qiita_page.dart';
+import 'package:flutter_tutorial/async/async_page.dart';
 import 'package:flutter_tutorial/youtube/youtube_page.dart';
 import 'package:flutter_tutorial/animation/animation_page.dart';
 import 'package:flutter_tutorial/building/building_layout_page.dart';
@@ -37,6 +38,10 @@ class IndexPage extends StatelessWidget {
               widget: MercariPage(),
             ),
             PageButton(
+              text: 'Async',
+              widget: AsyncPage(),
+            ),
+            PageButton(
               text: 'Tutorial6',
               widget: QiitaPage(),
             ),
@@ -64,7 +69,7 @@ class PageButton extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
+          MaterialPageRoute<double>(
             builder: (context) => widget,
           ),
         );
