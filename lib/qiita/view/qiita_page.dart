@@ -9,17 +9,13 @@ class QiitaPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(qiitaViewModelProvider);
-
-    // イベントハンドラの中で取得
-    void fetchItems(String tag) {
-      ref.read(qiitaViewModelProvider.notifier).fetchQiitaItems(tag);
-    }
+    final notifier = ref.read(qiitaViewModelProvider.notifier);
 
     return Scaffold(
       body: WillPopScope(
         onWillPop: state.isReadyData
             ? () {
-                ref.read(qiitaViewModelProvider.notifier).onBackHome();
+                notifier.onBackHome();
                 return Future.value(false);
               }
             : null,
@@ -29,9 +25,9 @@ class QiitaPage extends ConsumerWidget {
               child: state.isReadyData
                   ? _QiitaList(state.qiitaItems)
                   : _SearchButtons(
-                      onTapFlutter: () => fetchItems('flutter'),
-                      onTapAndroid: () => fetchItems('android'),
-                      onTapiOS: () => fetchItems('iOS'),
+                      onTapFlutter: () => notifier.fetchQiitaItems('flutter'),
+                      onTapAndroid: () => notifier.fetchQiitaItems('android'),
+                      onTapiOS: () => notifier.fetchQiitaItems('iOS'),
                     ),
             ),
             Visibility(
