@@ -1,59 +1,35 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/youtube/item_trending/trend_info.dart';
-import 'package:flutter_tutorial/youtube/model/api/trending_api_client.dart';
-import 'package:flutter_tutorial/youtube/model/trending_item.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tutorial/youtube/pages/item_trending/item_trending_view_model.dart';
+import 'package:flutter_tutorial/youtube/pages/item_trending/trend_info.dart';
 
-class ItemTrending extends StatefulWidget {
+class ItemTrending extends ConsumerWidget {
   const ItemTrending({super.key});
 
   @override
-  State<ItemTrending> createState() => _ItemTrendingState();
-}
-
-class _ItemTrendingState extends State<ItemTrending> {
-  late Future<List<TrendingItem>> _data;
-
-  @override
-  void initState() {
-    super.initState();
-    _data = fetchTrendingItems();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _data,
-      builder: (BuildContext context, snapshot) {
-        // 通信中はローディング
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const SliverFillRemaining(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        } else {
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, index) {
-                return TrendInfo(
-                  article: snapshot.data![index],
-                );
-              },
-              childCount: snapshot.data!.length,
-            ),
-          );
-        }
+  Widget build(BuildContext context, WidgetRef ref) {
+    final fetchItems = ref.watch(trendingItemProvider);
+    return fetchItems.when(
+      data: (data) {
+        return SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, index) {
+              return TrendInfo(
+                article: data[index],
+              );
+            },
+            childCount: data.length,
+          ),
+        );
+      },
+      error: (error, stack) => const Text('error'),
+      loading: () {
+        return const SliverFillRemaining(
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
       },
     );
-  }
-
-  // API
-  Future<List<TrendingItem>> fetchTrendingItems() async {
-    final dio = Dio();
-    dio.interceptors.add(PrettyDioLogger());
-    final client = TrendingApiClient(dio);
-    return client.fetchTrendingItems();
   }
 }
