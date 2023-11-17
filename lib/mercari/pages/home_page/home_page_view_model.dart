@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tutorial/mercari/model/api/listing_api_client.dart';
+import 'package:flutter_tutorial/mercari/service/listing_api_client.dart';
 import 'package:flutter_tutorial/mercari/model/listing_item.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
