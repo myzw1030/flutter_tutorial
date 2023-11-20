@@ -12,9 +12,9 @@ final listingApiProvider = Provider((ref) {
 });
 
 // 非同期で管理
-final listingItemProvider = FutureProvider<List<ListingItem>>(
+final listingItemProvider = FutureProvider.autoDispose<List<ListingItem>>(
   (ref) async {
-    final repository = ref.read(listingApiProvider);
+    final repository = ref.watch(listingApiProvider);
     return repository.fetchListingItems();
   },
 );
