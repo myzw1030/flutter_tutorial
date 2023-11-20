@@ -12,9 +12,9 @@ final trendingApiProvider = Provider((ref) {
 });
 
 // 非同期で管理
-final trendingItemProvider = FutureProvider<List<TrendingItem>>(
+final trendingItemProvider = FutureProvider.autoDispose<List<TrendingItem>>(
   (ref) async {
-    final repository = ref.read(trendingApiProvider);
+    final repository = ref.watch(trendingApiProvider);
     return repository.fetchTrendingItems();
   },
 );
