@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tutorial/residence/model/api/property_api_client.dart';
+import 'package:flutter_tutorial/residence/service/property_api_client.dart';
 import 'package:flutter_tutorial/residence/model/property_item.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -12,9 +12,9 @@ final propertyApiProvider = Provider((ref) {
 });
 
 // 非同期で管理
-final propertyItemProvider = FutureProvider<List<PropertyItem>>(
+final propertyItemProvider = FutureProvider.autoDispose<List<PropertyItem>>(
   (ref) async {
-    final repository = ref.read(propertyApiProvider);
+    final repository = ref.watch(propertyApiProvider);
     return repository.fetchPropertyItems();
   },
 );
