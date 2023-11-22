@@ -20,13 +20,9 @@ ListingItem _$ListingItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListingItem {
-  @JsonKey(name: 'imagePath')
   String? get imagePath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'price')
   int? get price => throw _privateConstructorUsedError;
-  @JsonKey(name: 'userCount')
   int? get userCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,11 +37,7 @@ abstract class $ListingItemCopyWith<$Res> {
           ListingItem value, $Res Function(ListingItem) then) =
       _$ListingItemCopyWithImpl<$Res, ListingItem>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'price') int? price,
-      @JsonKey(name: 'userCount') int? userCount});
+  $Res call({String? imagePath, String? title, int? price, int? userCount});
 }
 
 /// @nodoc
@@ -95,11 +87,7 @@ abstract class _$$ListingItemImplCopyWith<$Res>
       __$$ListingItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'price') int? price,
-      @JsonKey(name: 'userCount') int? userCount});
+  $Res call({String? imagePath, String? title, int? price, int? userCount});
 }
 
 /// @nodoc
@@ -143,25 +131,18 @@ class __$$ListingItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ListingItemImpl implements _ListingItem {
   const _$ListingItemImpl(
-      {@JsonKey(name: 'imagePath') this.imagePath,
-      @JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'price') this.price,
-      @JsonKey(name: 'userCount') this.userCount});
+      {this.imagePath, this.title, this.price, this.userCount});
 
   factory _$ListingItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListingItemImplFromJson(json);
 
   @override
-  @JsonKey(name: 'imagePath')
   final String? imagePath;
   @override
-  @JsonKey(name: 'title')
   final String? title;
   @override
-  @JsonKey(name: 'price')
   final int? price;
   @override
-  @JsonKey(name: 'userCount')
   final int? userCount;
 
   @override
@@ -203,25 +184,21 @@ class _$ListingItemImpl implements _ListingItem {
 
 abstract class _ListingItem implements ListingItem {
   const factory _ListingItem(
-      {@JsonKey(name: 'imagePath') final String? imagePath,
-      @JsonKey(name: 'title') final String? title,
-      @JsonKey(name: 'price') final int? price,
-      @JsonKey(name: 'userCount') final int? userCount}) = _$ListingItemImpl;
+      {final String? imagePath,
+      final String? title,
+      final int? price,
+      final int? userCount}) = _$ListingItemImpl;
 
   factory _ListingItem.fromJson(Map<String, dynamic> json) =
       _$ListingItemImpl.fromJson;
 
   @override
-  @JsonKey(name: 'imagePath')
   String? get imagePath;
   @override
-  @JsonKey(name: 'title')
   String? get title;
   @override
-  @JsonKey(name: 'price')
   int? get price;
   @override
-  @JsonKey(name: 'userCount')
   int? get userCount;
   @override
   @JsonKey(ignore: true)

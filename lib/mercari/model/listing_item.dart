@@ -7,10 +7,10 @@ part 'listing_item.g.dart';
 @freezed
 class ListingItem with _$ListingItem {
   const factory ListingItem({
-    @JsonKey(name: 'imagePath') String? imagePath,
-    @JsonKey(name: 'title') String? title,
-    @JsonKey(name: 'price') int? price,
-    @JsonKey(name: 'userCount') int? userCount,
+    String? imagePath,
+    String? title,
+    int? price,
+    int? userCount,
   }) = _ListingItem;
 
   factory ListingItem.fromJson(Map<String, dynamic> json) =>
