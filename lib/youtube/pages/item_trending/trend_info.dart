@@ -4,10 +4,10 @@ import 'package:flutter_tutorial/youtube/model/trending_item.dart';
 class TrendInfo extends StatelessWidget {
   const TrendInfo({
     super.key,
-    required this.article,
+    required this.movieInfo,
   });
 
-  final TrendingItem article;
+  final TrendingItem movieInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TrendInfo extends StatelessWidget {
           Stack(
             children: [
               Image.network(
-                article.imagePath,
+                movieInfo.imagePath,
                 fit: BoxFit.cover,
               ),
               Positioned(
@@ -57,7 +57,7 @@ class TrendInfo extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(22),
                   child: Image.network(
-                    article.iconPath,
+                    movieInfo.iconPath,
                     width: 44,
                     height: 44,
                     fit: BoxFit.fill,
@@ -71,7 +71,7 @@ class TrendInfo extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          article.title,
+                          movieInfo.title,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
@@ -79,9 +79,9 @@ class TrendInfo extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${article.channelName}・'
-                          '${article.numOfViews}万回視聴・'
-                          '${article.daysAgo}日前',
+                          '${movieInfo.channelName}・'
+                          '${movieInfo.numOfViews}万回視聴・'
+                          '${movieInfo.daysAgo}日前',
                           style: const TextStyle(
                             color: Colors.grey,
                           ),

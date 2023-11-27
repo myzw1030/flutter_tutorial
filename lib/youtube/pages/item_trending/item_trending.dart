@@ -15,7 +15,7 @@ class ItemTrending extends ConsumerWidget {
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, index) {
               return TrendInfo(
-                article: data[index],
+                movieInfo: data[index],
               );
             },
             childCount: data.length,
