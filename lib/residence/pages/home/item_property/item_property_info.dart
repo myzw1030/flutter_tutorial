@@ -34,7 +34,7 @@ class ItemPropertyInfo extends StatelessWidget {
                       topLeft: Radius.circular(16),
                     ),
                     child: Image.network(
-                      propertyItem.imagePath!,
+                      propertyItem.imagePath,
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).width / 2,
                       fit: BoxFit.cover,
@@ -47,7 +47,7 @@ class ItemPropertyInfo extends StatelessWidget {
                       topRight: Radius.circular(16),
                     ),
                     child: Image.network(
-                      propertyItem.imagePath2!,
+                      propertyItem.imagePath2,
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).width / 2,
                       fit: BoxFit.cover,
@@ -67,7 +67,7 @@ class ItemPropertyInfo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    propertyItem.title!,
+                    propertyItem.title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -89,7 +89,7 @@ class ItemPropertyInfo extends StatelessWidget {
                             Icons.train,
                           ),
                           const SizedBox(width: 6),
-                          Text(propertyItem.accessDescription!),
+                          Text(propertyItem.accessDescription),
                         ],
                       ),
                       const SizedBox(height: 6),
@@ -99,7 +99,7 @@ class ItemPropertyInfo extends StatelessWidget {
                             Icons.paid,
                           ),
                           const SizedBox(width: 6),
-                          Text(propertyItem.unitDescription!),
+                          Text(propertyItem.unitDescription),
                         ],
                       ),
                       const SizedBox(height: 6),
@@ -109,7 +109,7 @@ class ItemPropertyInfo extends StatelessWidget {
                             Icons.info_outline,
                           ),
                           const SizedBox(width: 6),
-                          Text(propertyItem.buildingDetails!),
+                          Text(propertyItem.buildingDetails),
                         ],
                       ),
                     ],

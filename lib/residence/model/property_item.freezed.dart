@@ -20,20 +20,13 @@ PropertyItem _$PropertyItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PropertyItem {
-  @JsonKey(name: 'imagePath')
-  String? get imagePath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'imagePath2')
-  String? get imagePath2 => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
-  String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'price')
-  int? get price => throw _privateConstructorUsedError;
-  @JsonKey(name: 'accessDescription')
-  String? get accessDescription => throw _privateConstructorUsedError;
-  @JsonKey(name: 'unitDescription')
-  String? get unitDescription => throw _privateConstructorUsedError;
-  @JsonKey(name: 'buildingDetails')
-  String? get buildingDetails => throw _privateConstructorUsedError;
+  String get imagePath => throw _privateConstructorUsedError;
+  String get imagePath2 => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  int get price => throw _privateConstructorUsedError;
+  String get accessDescription => throw _privateConstructorUsedError;
+  String get unitDescription => throw _privateConstructorUsedError;
+  String get buildingDetails => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,13 +41,13 @@ abstract class $PropertyItemCopyWith<$Res> {
       _$PropertyItemCopyWithImpl<$Res, PropertyItem>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'imagePath2') String? imagePath2,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'price') int? price,
-      @JsonKey(name: 'accessDescription') String? accessDescription,
-      @JsonKey(name: 'unitDescription') String? unitDescription,
-      @JsonKey(name: 'buildingDetails') String? buildingDetails});
+      {String imagePath,
+      String imagePath2,
+      String title,
+      int price,
+      String accessDescription,
+      String unitDescription,
+      String buildingDetails});
 }
 
 /// @nodoc
@@ -70,43 +63,43 @@ class _$PropertyItemCopyWithImpl<$Res, $Val extends PropertyItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imagePath = freezed,
-    Object? imagePath2 = freezed,
-    Object? title = freezed,
-    Object? price = freezed,
-    Object? accessDescription = freezed,
-    Object? unitDescription = freezed,
-    Object? buildingDetails = freezed,
+    Object? imagePath = null,
+    Object? imagePath2 = null,
+    Object? title = null,
+    Object? price = null,
+    Object? accessDescription = null,
+    Object? unitDescription = null,
+    Object? buildingDetails = null,
   }) {
     return _then(_value.copyWith(
-      imagePath: freezed == imagePath
+      imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imagePath2: freezed == imagePath2
+              as String,
+      imagePath2: null == imagePath2
           ? _value.imagePath2
           : imagePath2 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      price: freezed == price
+              as String,
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      accessDescription: freezed == accessDescription
+              as int,
+      accessDescription: null == accessDescription
           ? _value.accessDescription
           : accessDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      unitDescription: freezed == unitDescription
+              as String,
+      unitDescription: null == unitDescription
           ? _value.unitDescription
           : unitDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      buildingDetails: freezed == buildingDetails
+              as String,
+      buildingDetails: null == buildingDetails
           ? _value.buildingDetails
           : buildingDetails // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -120,13 +113,13 @@ abstract class _$$PropertyItemImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'imagePath2') String? imagePath2,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'price') int? price,
-      @JsonKey(name: 'accessDescription') String? accessDescription,
-      @JsonKey(name: 'unitDescription') String? unitDescription,
-      @JsonKey(name: 'buildingDetails') String? buildingDetails});
+      {String imagePath,
+      String imagePath2,
+      String title,
+      int price,
+      String accessDescription,
+      String unitDescription,
+      String buildingDetails});
 }
 
 /// @nodoc
@@ -140,43 +133,43 @@ class __$$PropertyItemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imagePath = freezed,
-    Object? imagePath2 = freezed,
-    Object? title = freezed,
-    Object? price = freezed,
-    Object? accessDescription = freezed,
-    Object? unitDescription = freezed,
-    Object? buildingDetails = freezed,
+    Object? imagePath = null,
+    Object? imagePath2 = null,
+    Object? title = null,
+    Object? price = null,
+    Object? accessDescription = null,
+    Object? unitDescription = null,
+    Object? buildingDetails = null,
   }) {
     return _then(_$PropertyItemImpl(
-      imagePath: freezed == imagePath
+      imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imagePath2: freezed == imagePath2
+              as String,
+      imagePath2: null == imagePath2
           ? _value.imagePath2
           : imagePath2 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      price: freezed == price
+              as String,
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      accessDescription: freezed == accessDescription
+              as int,
+      accessDescription: null == accessDescription
           ? _value.accessDescription
           : accessDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      unitDescription: freezed == unitDescription
+              as String,
+      unitDescription: null == unitDescription
           ? _value.unitDescription
           : unitDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      buildingDetails: freezed == buildingDetails
+              as String,
+      buildingDetails: null == buildingDetails
           ? _value.buildingDetails
           : buildingDetails // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -185,38 +178,38 @@ class __$$PropertyItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PropertyItemImpl implements _PropertyItem {
   const _$PropertyItemImpl(
-      {@JsonKey(name: 'imagePath') this.imagePath,
-      @JsonKey(name: 'imagePath2') this.imagePath2,
-      @JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'price') this.price,
-      @JsonKey(name: 'accessDescription') this.accessDescription,
-      @JsonKey(name: 'unitDescription') this.unitDescription,
-      @JsonKey(name: 'buildingDetails') this.buildingDetails});
+      {this.imagePath = '',
+      this.imagePath2 = '',
+      this.title = '',
+      this.price = 0,
+      this.accessDescription = '',
+      this.unitDescription = '',
+      this.buildingDetails = ''});
 
   factory _$PropertyItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$PropertyItemImplFromJson(json);
 
   @override
-  @JsonKey(name: 'imagePath')
-  final String? imagePath;
+  @JsonKey()
+  final String imagePath;
   @override
-  @JsonKey(name: 'imagePath2')
-  final String? imagePath2;
+  @JsonKey()
+  final String imagePath2;
   @override
-  @JsonKey(name: 'title')
-  final String? title;
+  @JsonKey()
+  final String title;
   @override
-  @JsonKey(name: 'price')
-  final int? price;
+  @JsonKey()
+  final int price;
   @override
-  @JsonKey(name: 'accessDescription')
-  final String? accessDescription;
+  @JsonKey()
+  final String accessDescription;
   @override
-  @JsonKey(name: 'unitDescription')
-  final String? unitDescription;
+  @JsonKey()
+  final String unitDescription;
   @override
-  @JsonKey(name: 'buildingDetails')
-  final String? buildingDetails;
+  @JsonKey()
+  final String buildingDetails;
 
   @override
   String toString() {
@@ -263,39 +256,31 @@ class _$PropertyItemImpl implements _PropertyItem {
 
 abstract class _PropertyItem implements PropertyItem {
   const factory _PropertyItem(
-          {@JsonKey(name: 'imagePath') final String? imagePath,
-          @JsonKey(name: 'imagePath2') final String? imagePath2,
-          @JsonKey(name: 'title') final String? title,
-          @JsonKey(name: 'price') final int? price,
-          @JsonKey(name: 'accessDescription') final String? accessDescription,
-          @JsonKey(name: 'unitDescription') final String? unitDescription,
-          @JsonKey(name: 'buildingDetails') final String? buildingDetails}) =
-      _$PropertyItemImpl;
+      {final String imagePath,
+      final String imagePath2,
+      final String title,
+      final int price,
+      final String accessDescription,
+      final String unitDescription,
+      final String buildingDetails}) = _$PropertyItemImpl;
 
   factory _PropertyItem.fromJson(Map<String, dynamic> json) =
       _$PropertyItemImpl.fromJson;
 
   @override
-  @JsonKey(name: 'imagePath')
-  String? get imagePath;
+  String get imagePath;
   @override
-  @JsonKey(name: 'imagePath2')
-  String? get imagePath2;
+  String get imagePath2;
   @override
-  @JsonKey(name: 'title')
-  String? get title;
+  String get title;
   @override
-  @JsonKey(name: 'price')
-  int? get price;
+  int get price;
   @override
-  @JsonKey(name: 'accessDescription')
-  String? get accessDescription;
+  String get accessDescription;
   @override
-  @JsonKey(name: 'unitDescription')
-  String? get unitDescription;
+  String get unitDescription;
   @override
-  @JsonKey(name: 'buildingDetails')
-  String? get buildingDetails;
+  String get buildingDetails;
   @override
   @JsonKey(ignore: true)
   _$$PropertyItemImplCopyWith<_$PropertyItemImpl> get copyWith =>
