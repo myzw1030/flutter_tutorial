@@ -20,10 +20,10 @@ ListingItem _$ListingItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListingItem {
-  String? get imagePath => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
-  int? get userCount => throw _privateConstructorUsedError;
+  String get imagePath => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  int get price => throw _privateConstructorUsedError;
+  int get userCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $ListingItemCopyWith<$Res> {
           ListingItem value, $Res Function(ListingItem) then) =
       _$ListingItemCopyWithImpl<$Res, ListingItem>;
   @useResult
-  $Res call({String? imagePath, String? title, int? price, int? userCount});
+  $Res call({String imagePath, String title, int price, int userCount});
 }
 
 /// @nodoc
@@ -53,28 +53,28 @@ class _$ListingItemCopyWithImpl<$Res, $Val extends ListingItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imagePath = freezed,
-    Object? title = freezed,
-    Object? price = freezed,
-    Object? userCount = freezed,
+    Object? imagePath = null,
+    Object? title = null,
+    Object? price = null,
+    Object? userCount = null,
   }) {
     return _then(_value.copyWith(
-      imagePath: freezed == imagePath
+      imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      price: freezed == price
+              as String,
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      userCount: freezed == userCount
+              as int,
+      userCount: null == userCount
           ? _value.userCount
           : userCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$ListingItemImplCopyWith<$Res>
       __$$ListingItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? imagePath, String? title, int? price, int? userCount});
+  $Res call({String imagePath, String title, int price, int userCount});
 }
 
 /// @nodoc
@@ -101,28 +101,28 @@ class __$$ListingItemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imagePath = freezed,
-    Object? title = freezed,
-    Object? price = freezed,
-    Object? userCount = freezed,
+    Object? imagePath = null,
+    Object? title = null,
+    Object? price = null,
+    Object? userCount = null,
   }) {
     return _then(_$ListingItemImpl(
-      imagePath: freezed == imagePath
+      imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      price: freezed == price
+              as String,
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
-      userCount: freezed == userCount
+              as int,
+      userCount: null == userCount
           ? _value.userCount
           : userCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -131,19 +131,26 @@ class __$$ListingItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ListingItemImpl implements _ListingItem {
   const _$ListingItemImpl(
-      {this.imagePath, this.title, this.price, this.userCount});
+      {this.imagePath = '',
+      this.title = '',
+      this.price = 0,
+      this.userCount = 0});
 
   factory _$ListingItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListingItemImplFromJson(json);
 
   @override
-  final String? imagePath;
+  @JsonKey()
+  final String imagePath;
   @override
-  final String? title;
+  @JsonKey()
+  final String title;
   @override
-  final int? price;
+  @JsonKey()
+  final int price;
   @override
-  final int? userCount;
+  @JsonKey()
+  final int userCount;
 
   @override
   String toString() {
@@ -184,22 +191,22 @@ class _$ListingItemImpl implements _ListingItem {
 
 abstract class _ListingItem implements ListingItem {
   const factory _ListingItem(
-      {final String? imagePath,
-      final String? title,
-      final int? price,
-      final int? userCount}) = _$ListingItemImpl;
+      {final String imagePath,
+      final String title,
+      final int price,
+      final int userCount}) = _$ListingItemImpl;
 
   factory _ListingItem.fromJson(Map<String, dynamic> json) =
       _$ListingItemImpl.fromJson;
 
   @override
-  String? get imagePath;
+  String get imagePath;
   @override
-  String? get title;
+  String get title;
   @override
-  int? get price;
+  int get price;
   @override
-  int? get userCount;
+  int get userCount;
   @override
   @JsonKey(ignore: true)
   _$$ListingItemImplCopyWith<_$ListingItemImpl> get copyWith =>

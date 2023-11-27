@@ -17,7 +17,7 @@ class ListingInfo extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.network(
-              listingItem.imagePath!,
+              listingItem.imagePath,
               fit: BoxFit.cover,
               width: 80,
               height: 80,
@@ -28,7 +28,7 @@ class ListingInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                listingItem.title!,
+                listingItem.title,
                 style: const TextStyle(
                   fontSize: 15,
                 ),
