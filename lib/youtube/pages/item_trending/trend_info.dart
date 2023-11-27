@@ -19,7 +19,7 @@ class TrendInfo extends StatelessWidget {
           Stack(
             children: [
               Image.network(
-                article.imagePath!,
+                article.imagePath,
                 fit: BoxFit.cover,
               ),
               Positioned(
@@ -57,7 +57,7 @@ class TrendInfo extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(22),
                   child: Image.network(
-                    article.iconPath!,
+                    article.iconPath,
                     width: 44,
                     height: 44,
                     fit: BoxFit.fill,
@@ -71,7 +71,7 @@ class TrendInfo extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          article.title!,
+                          article.title,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,

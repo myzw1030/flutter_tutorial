@@ -20,18 +20,12 @@ TrendingItem _$TrendingItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TrendingItem {
-  @JsonKey(name: 'imagePath')
-  String? get imagePath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'iconPath')
-  String? get iconPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
-  String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'channelName')
-  String? get channelName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'numOfViews')
-  int? get numOfViews => throw _privateConstructorUsedError;
-  @JsonKey(name: 'daysAgo')
-  int? get daysAgo => throw _privateConstructorUsedError;
+  String get imagePath => throw _privateConstructorUsedError;
+  String get iconPath => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get channelName => throw _privateConstructorUsedError;
+  int get numOfViews => throw _privateConstructorUsedError;
+  int get daysAgo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,12 +40,12 @@ abstract class $TrendingItemCopyWith<$Res> {
       _$TrendingItemCopyWithImpl<$Res, TrendingItem>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'iconPath') String? iconPath,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'channelName') String? channelName,
-      @JsonKey(name: 'numOfViews') int? numOfViews,
-      @JsonKey(name: 'daysAgo') int? daysAgo});
+      {String imagePath,
+      String iconPath,
+      String title,
+      String channelName,
+      int numOfViews,
+      int daysAgo});
 }
 
 /// @nodoc
@@ -67,38 +61,38 @@ class _$TrendingItemCopyWithImpl<$Res, $Val extends TrendingItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imagePath = freezed,
-    Object? iconPath = freezed,
-    Object? title = freezed,
-    Object? channelName = freezed,
-    Object? numOfViews = freezed,
-    Object? daysAgo = freezed,
+    Object? imagePath = null,
+    Object? iconPath = null,
+    Object? title = null,
+    Object? channelName = null,
+    Object? numOfViews = null,
+    Object? daysAgo = null,
   }) {
     return _then(_value.copyWith(
-      imagePath: freezed == imagePath
+      imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      iconPath: freezed == iconPath
+              as String,
+      iconPath: null == iconPath
           ? _value.iconPath
           : iconPath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channelName: freezed == channelName
+              as String,
+      channelName: null == channelName
           ? _value.channelName
           : channelName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numOfViews: freezed == numOfViews
+              as String,
+      numOfViews: null == numOfViews
           ? _value.numOfViews
           : numOfViews // ignore: cast_nullable_to_non_nullable
-              as int?,
-      daysAgo: freezed == daysAgo
+              as int,
+      daysAgo: null == daysAgo
           ? _value.daysAgo
           : daysAgo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -112,12 +106,12 @@ abstract class _$$TrendingItemImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'imagePath') String? imagePath,
-      @JsonKey(name: 'iconPath') String? iconPath,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'channelName') String? channelName,
-      @JsonKey(name: 'numOfViews') int? numOfViews,
-      @JsonKey(name: 'daysAgo') int? daysAgo});
+      {String imagePath,
+      String iconPath,
+      String title,
+      String channelName,
+      int numOfViews,
+      int daysAgo});
 }
 
 /// @nodoc
@@ -131,38 +125,38 @@ class __$$TrendingItemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? imagePath = freezed,
-    Object? iconPath = freezed,
-    Object? title = freezed,
-    Object? channelName = freezed,
-    Object? numOfViews = freezed,
-    Object? daysAgo = freezed,
+    Object? imagePath = null,
+    Object? iconPath = null,
+    Object? title = null,
+    Object? channelName = null,
+    Object? numOfViews = null,
+    Object? daysAgo = null,
   }) {
     return _then(_$TrendingItemImpl(
-      imagePath: freezed == imagePath
+      imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      iconPath: freezed == iconPath
+              as String,
+      iconPath: null == iconPath
           ? _value.iconPath
           : iconPath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channelName: freezed == channelName
+              as String,
+      channelName: null == channelName
           ? _value.channelName
           : channelName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numOfViews: freezed == numOfViews
+              as String,
+      numOfViews: null == numOfViews
           ? _value.numOfViews
           : numOfViews // ignore: cast_nullable_to_non_nullable
-              as int?,
-      daysAgo: freezed == daysAgo
+              as int,
+      daysAgo: null == daysAgo
           ? _value.daysAgo
           : daysAgo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -171,34 +165,34 @@ class __$$TrendingItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TrendingItemImpl implements _TrendingItem {
   const _$TrendingItemImpl(
-      {@JsonKey(name: 'imagePath') this.imagePath,
-      @JsonKey(name: 'iconPath') this.iconPath,
-      @JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'channelName') this.channelName,
-      @JsonKey(name: 'numOfViews') this.numOfViews,
-      @JsonKey(name: 'daysAgo') this.daysAgo});
+      {this.imagePath = '',
+      this.iconPath = '',
+      this.title = '',
+      this.channelName = '',
+      this.numOfViews = 0,
+      this.daysAgo = 0});
 
   factory _$TrendingItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$TrendingItemImplFromJson(json);
 
   @override
-  @JsonKey(name: 'imagePath')
-  final String? imagePath;
+  @JsonKey()
+  final String imagePath;
   @override
-  @JsonKey(name: 'iconPath')
-  final String? iconPath;
+  @JsonKey()
+  final String iconPath;
   @override
-  @JsonKey(name: 'title')
-  final String? title;
+  @JsonKey()
+  final String title;
   @override
-  @JsonKey(name: 'channelName')
-  final String? channelName;
+  @JsonKey()
+  final String channelName;
   @override
-  @JsonKey(name: 'numOfViews')
-  final int? numOfViews;
+  @JsonKey()
+  final int numOfViews;
   @override
-  @JsonKey(name: 'daysAgo')
-  final int? daysAgo;
+  @JsonKey()
+  final int daysAgo;
 
   @override
   String toString() {
@@ -243,34 +237,28 @@ class _$TrendingItemImpl implements _TrendingItem {
 
 abstract class _TrendingItem implements TrendingItem {
   const factory _TrendingItem(
-      {@JsonKey(name: 'imagePath') final String? imagePath,
-      @JsonKey(name: 'iconPath') final String? iconPath,
-      @JsonKey(name: 'title') final String? title,
-      @JsonKey(name: 'channelName') final String? channelName,
-      @JsonKey(name: 'numOfViews') final int? numOfViews,
-      @JsonKey(name: 'daysAgo') final int? daysAgo}) = _$TrendingItemImpl;
+      {final String imagePath,
+      final String iconPath,
+      final String title,
+      final String channelName,
+      final int numOfViews,
+      final int daysAgo}) = _$TrendingItemImpl;
 
   factory _TrendingItem.fromJson(Map<String, dynamic> json) =
       _$TrendingItemImpl.fromJson;
 
   @override
-  @JsonKey(name: 'imagePath')
-  String? get imagePath;
+  String get imagePath;
   @override
-  @JsonKey(name: 'iconPath')
-  String? get iconPath;
+  String get iconPath;
   @override
-  @JsonKey(name: 'title')
-  String? get title;
+  String get title;
   @override
-  @JsonKey(name: 'channelName')
-  String? get channelName;
+  String get channelName;
   @override
-  @JsonKey(name: 'numOfViews')
-  int? get numOfViews;
+  int get numOfViews;
   @override
-  @JsonKey(name: 'daysAgo')
-  int? get daysAgo;
+  int get daysAgo;
   @override
   @JsonKey(ignore: true)
   _$$TrendingItemImplCopyWith<_$TrendingItemImpl> get copyWith =>
