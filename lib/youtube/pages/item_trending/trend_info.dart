@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/youtube/model/trending_item.dart';
 
 class TrendInfo extends StatelessWidget {
   const TrendInfo({
     super.key,
-    required this.imagePath,
-    required this.iconPath,
-    required this.title,
-    required this.subTitle,
+    required this.movieInfo,
   });
 
-  final String imagePath;
-  final String iconPath;
-  final String title;
-  final String subTitle;
+  final TrendingItem movieInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +18,8 @@ class TrendInfo extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Image.asset(
-                imagePath,
+              Image.network(
+                movieInfo.imagePath,
                 fit: BoxFit.cover,
               ),
               Positioned(
@@ -61,8 +56,8 @@ class TrendInfo extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(22),
-                  child: Image.asset(
-                    iconPath,
+                  child: Image.network(
+                    movieInfo.iconPath,
                     width: 44,
                     height: 44,
                     fit: BoxFit.fill,
@@ -76,7 +71,7 @@ class TrendInfo extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          title,
+                          movieInfo.title,
                           style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
@@ -84,7 +79,9 @@ class TrendInfo extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          subTitle,
+                          '${movieInfo.channelName}・'
+                          '${movieInfo.numOfViews}万回視聴・'
+                          '${movieInfo.daysAgo}日前',
                           style: const TextStyle(
                             color: Colors.grey,
                           ),

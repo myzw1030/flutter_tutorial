@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/youtube/item_categories/item_grid.dart';
+import 'package:flutter_tutorial/youtube/pages/item_categories/item_grid.dart';
 
 class ItemCategories extends StatelessWidget {
   const ItemCategories({super.key});
