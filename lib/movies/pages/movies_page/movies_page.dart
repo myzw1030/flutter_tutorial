@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/movies/pages/movies_page/movies_header.dart';
+import 'package:flutter_tutorial/movies/pages/movies_page/movies_search.dart';
+import 'package:flutter_tutorial/movies/pages/movies_page/settings_button.dart';
 
 class MoviesPage extends StatelessWidget {
   const MoviesPage({super.key});
@@ -20,7 +21,15 @@ class MoviesPage extends StatelessWidget {
         child: const Scaffold(
           body: CustomScrollView(
             slivers: [
-              MoviesHeader(),
+              SliverToBoxAdapter(
+                child: Row(
+                  children: [
+                    MoviesSearch(),
+                    SizedBox(width: 8),
+                    SettingsButton(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
