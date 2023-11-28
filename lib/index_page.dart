@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/qiita/view/qiita_page.dart';
 import 'package:flutter_tutorial/async/async_page.dart';
-import 'package:flutter_tutorial/youtube/youtube_page.dart';
+import 'package:flutter_tutorial/youtube/pages/youtube_page.dart';
 import 'package:flutter_tutorial/animation/animation_page.dart';
 import 'package:flutter_tutorial/building/building_layout_page.dart';
 import 'package:flutter_tutorial/mercari/pages/mercari_page.dart';
