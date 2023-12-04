@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_tutorial/mercari/home_page/listing_list.dart';
+import 'package:flutter_tutorial/mercari/pages/home_page/listing_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
