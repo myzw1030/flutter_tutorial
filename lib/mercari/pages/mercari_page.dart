@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/mercari/home_page/home_page.dart';
+import 'package:flutter_tutorial/mercari/pages/home_page/home_page.dart';
 
 class MercariPage extends StatelessWidget {
   const MercariPage({super.key, int selectedIndex = 0})
