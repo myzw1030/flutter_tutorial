@@ -5,7 +5,7 @@ import 'package:flutter_tutorial/youtube/pages/youtube_page.dart';
 import 'package:flutter_tutorial/animation/animation_page.dart';
 import 'package:flutter_tutorial/building/building_layout_page.dart';
 import 'package:flutter_tutorial/mercari/pages/mercari_page.dart';
-import 'package:flutter_tutorial/residence/residence_page.dart';
+import 'package:flutter_tutorial/residence/pages/residence_page.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({super.key});
