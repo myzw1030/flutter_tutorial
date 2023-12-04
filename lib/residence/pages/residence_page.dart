@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial/residence/item_property/item_property_list.dart';
-import 'package:flutter_tutorial/residence/item_recommend/item_recommend.dart';
+import 'package:flutter_tutorial/residence/pages/home/home_page.dart';
 
 class ResidencePage extends StatelessWidget {
   const ResidencePage({super.key, int selectedIndex = 0})
       : _selectedIndex = selectedIndex;
 
   final int _selectedIndex;
+  static const _pageWidgets = [
+    HomePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -99,18 +101,7 @@ class ResidencePage extends StatelessWidget {
             ),
           ],
         ),
-        body: const Padding(
-          padding: EdgeInsets.all(8),
-          child: CustomScrollView(
-            slivers: [
-              ItemRecommend(),
-              SliverToBoxAdapter(
-                child: SizedBox(height: 16),
-              ),
-              ItemPropertyList(),
-            ],
-          ),
-        ),
+        body: _pageWidgets.elementAt(_selectedIndex),
         floatingActionButton: SizedBox(
           width: 70,
           height: 70,
