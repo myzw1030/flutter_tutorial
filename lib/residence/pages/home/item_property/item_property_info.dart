@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/residence/model/property_item.dart';
 
 class ItemPropertyInfo extends StatelessWidget {
   const ItemPropertyInfo({
     super.key,
-    required this.imagePath,
-    required this.imagePath2,
-    required this.title,
-    required this.price,
-    required this.accessDescription,
-    required this.unitDescription,
-    required this.buildingDetails,
+    required this.propertyItem,
   });
 
-  final String imagePath;
-  final String imagePath2;
-  final String title;
-  final String price;
-  final String accessDescription;
-  final String unitDescription;
-  final String buildingDetails;
+  final PropertyItem propertyItem;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +33,8 @@ class ItemPropertyInfo extends StatelessWidget {
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(16),
                     ),
-                    child: Image.asset(
-                      imagePath.isNotEmpty
-                          ? 'assets/$imagePath'
-                          : 'assets/residence_no_image.png',
+                    child: Image.network(
+                      propertyItem.imagePath,
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).width / 2,
                       fit: BoxFit.cover,
@@ -59,10 +46,8 @@ class ItemPropertyInfo extends StatelessWidget {
                     borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(16),
                     ),
-                    child: Image.asset(
-                      imagePath2.isNotEmpty
-                          ? 'assets/$imagePath2'
-                          : 'assets/residence_no_image.png',
+                    child: Image.network(
+                      propertyItem.imagePath2,
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).width / 2,
                       fit: BoxFit.cover,
@@ -82,14 +67,14 @@ class ItemPropertyInfo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    propertyItem.title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
                   Text(
-                    price,
+                    '${propertyItem.price}万円',
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.red,
@@ -104,7 +89,7 @@ class ItemPropertyInfo extends StatelessWidget {
                             Icons.train,
                           ),
                           const SizedBox(width: 6),
-                          Text(accessDescription),
+                          Text(propertyItem.accessDescription),
                         ],
                       ),
                       const SizedBox(height: 6),
@@ -114,7 +99,7 @@ class ItemPropertyInfo extends StatelessWidget {
                             Icons.paid,
                           ),
                           const SizedBox(width: 6),
-                          Text(unitDescription),
+                          Text(propertyItem.unitDescription),
                         ],
                       ),
                       const SizedBox(height: 6),
@@ -124,7 +109,7 @@ class ItemPropertyInfo extends StatelessWidget {
                             Icons.info_outline,
                           ),
                           const SizedBox(width: 6),
-                          Text(buildingDetails),
+                          Text(propertyItem.buildingDetails),
                         ],
                       ),
                     ],
