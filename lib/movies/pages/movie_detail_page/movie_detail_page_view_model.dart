@@ -25,19 +25,16 @@ class MovieDetailPageViewModel extends StateNotifier<MovieDetailPageState> {
 
   // 映画詳細を取得し、状態を更新
   Future<void> fetchMovieDetail(int movieId) async {
-    try {
-      state = state.copyWith(isLoading: true);
-      final movieDetail = await _moviesRepository.fetchMovieDetail(movieId);
+    state = state.copyWith(isLoading: true);
 
-      if (!mounted) {
-        return;
-      }
-      state = state.copyWith(
-        isLoading: false,
-        movieDetail: movieDetail,
-      );
-    } catch (e) {
-      print('MovieDetailPageViewModel:$e');
+    final movieDetail = await _moviesRepository.fetchMovieDetail(movieId);
+
+    if (!mounted) {
+      return;
     }
+    state = state.copyWith(
+      isLoading: false,
+      movieDetail: movieDetail,
+    );
   }
 }

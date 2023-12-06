@@ -8,7 +8,7 @@ part 'movie_detail_data.g.dart';
 class MovieDetailData with _$MovieDetailData {
   const factory MovieDetailData({
     @JsonKey(name: 'backdrop_path') String? backdropPath,
-    @JsonKey(name: 'original_title') String? originalTitle,
+    String? title,
     String? overview,
     @JsonKey(name: 'poster_path') String? posterPath,
     @JsonKey(name: 'release_date') String? releaseDate,

@@ -21,6 +21,8 @@ MoviesSearchData _$MoviesSearchDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MoviesSearchData {
   int get page => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_pages')
+  int get totalPages => throw _privateConstructorUsedError;
   List<MoviesListData> get results => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +37,10 @@ abstract class $MoviesSearchDataCopyWith<$Res> {
           MoviesSearchData value, $Res Function(MoviesSearchData) then) =
       _$MoviesSearchDataCopyWithImpl<$Res, MoviesSearchData>;
   @useResult
-  $Res call({int page, List<MoviesListData> results});
+  $Res call(
+      {int page,
+      @JsonKey(name: 'total_pages') int totalPages,
+      List<MoviesListData> results});
 }
 
 /// @nodoc
@@ -52,12 +57,17 @@ class _$MoviesSearchDataCopyWithImpl<$Res, $Val extends MoviesSearchData>
   @override
   $Res call({
     Object? page = null,
+    Object? totalPages = null,
     Object? results = null,
   }) {
     return _then(_value.copyWith(
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
       results: null == results
           ? _value.results
@@ -75,7 +85,10 @@ abstract class _$$MoviesSearchDataImplCopyWith<$Res>
       __$$MoviesSearchDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int page, List<MoviesListData> results});
+  $Res call(
+      {int page,
+      @JsonKey(name: 'total_pages') int totalPages,
+      List<MoviesListData> results});
 }
 
 /// @nodoc
@@ -90,12 +103,17 @@ class __$$MoviesSearchDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = null,
+    Object? totalPages = null,
     Object? results = null,
   }) {
     return _then(_$MoviesSearchDataImpl(
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
       results: null == results
           ? _value._results
@@ -110,6 +128,7 @@ class __$$MoviesSearchDataImplCopyWithImpl<$Res>
 class _$MoviesSearchDataImpl implements _MoviesSearchData {
   const _$MoviesSearchDataImpl(
       {this.page = 1,
+      @JsonKey(name: 'total_pages') this.totalPages = 1,
       final List<MoviesListData> results = const <MoviesListData>[]})
       : _results = results;
 
@@ -119,6 +138,9 @@ class _$MoviesSearchDataImpl implements _MoviesSearchData {
   @override
   @JsonKey()
   final int page;
+  @override
+  @JsonKey(name: 'total_pages')
+  final int totalPages;
   final List<MoviesListData> _results;
   @override
   @JsonKey()
@@ -130,7 +152,7 @@ class _$MoviesSearchDataImpl implements _MoviesSearchData {
 
   @override
   String toString() {
-    return 'MoviesSearchData(page: $page, results: $results)';
+    return 'MoviesSearchData(page: $page, totalPages: $totalPages, results: $results)';
   }
 
   @override
@@ -139,13 +161,15 @@ class _$MoviesSearchDataImpl implements _MoviesSearchData {
         (other.runtimeType == runtimeType &&
             other is _$MoviesSearchDataImpl &&
             (identical(other.page, page) || other.page == page) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
             const DeepCollectionEquality().equals(other._results, _results));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, page, const DeepCollectionEquality().hash(_results));
+  int get hashCode => Object.hash(runtimeType, page, totalPages,
+      const DeepCollectionEquality().hash(_results));
 
   @JsonKey(ignore: true)
   @override
@@ -165,6 +189,7 @@ class _$MoviesSearchDataImpl implements _MoviesSearchData {
 abstract class _MoviesSearchData implements MoviesSearchData {
   const factory _MoviesSearchData(
       {final int page,
+      @JsonKey(name: 'total_pages') final int totalPages,
       final List<MoviesListData> results}) = _$MoviesSearchDataImpl;
 
   factory _MoviesSearchData.fromJson(Map<String, dynamic> json) =
@@ -172,6 +197,9 @@ abstract class _MoviesSearchData implements MoviesSearchData {
 
   @override
   int get page;
+  @override
+  @JsonKey(name: 'total_pages')
+  int get totalPages;
   @override
   List<MoviesListData> get results;
   @override

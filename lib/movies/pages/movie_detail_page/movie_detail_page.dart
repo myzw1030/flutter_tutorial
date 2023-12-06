@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tutorial/movies/pages/movie_detail_page/movie_detail_page_view_model.dart';
+import 'package:intl/intl.dart';
 
 class MovieDetailPage extends StatelessWidget {
   const MovieDetailPage({
@@ -52,6 +53,31 @@ class _DetailItem extends ConsumerWidget {
 
   final int movieId;
 
+  // フォーマット：公開日（ex:2023-10-12を2023年10月12日に整形）
+  String formatReleaseDate(String releaseDate) {
+    if (releaseDate.isEmpty) {
+      return '不明';
+    }
+    final dateTime = DateTime.parse(releaseDate);
+    return DateFormat('yyyy年MM月dd日').format(dateTime);
+  }
+
+  // フォーマット：上映時間（'分'で返ってくるので、○時間△分に整形）
+  String formatRunTime(int? runtime) {
+    if (runtime == null) {
+      return '不明';
+    }
+    // 時間（整数部分）
+    final hour = runtime ~/ 60;
+    // 分（余り）
+    final minutes = runtime % 60;
+    if (minutes == 0) {
+      return '$hour時間';
+    } else {
+      return '$hour時間$minutes分';
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(movieDetailPageProvider(movieId));
@@ -97,46 +123,54 @@ class _DetailItem extends ConsumerWidget {
             child: Column(
               children: [
                 Text(
-                  state.movieDetail.originalTitle ?? '',
+                  state.movieDetail.title ?? '',
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 12),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '公開日：${state.movieDetail.releaseDate ?? ''}',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '公開日：${formatReleaseDate(
+                          state.movieDetail.releaseDate ?? '',
+                        )}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      '上映時間：${state.movieDetail.runtime ?? ''}',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                      const SizedBox(height: 12),
+                      Text(
+                        '上映時間：${formatRunTime(state.movieDetail.runtime)}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    const Text(
-                      'あらすじ：',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      state.movieDetail.overview ?? '',
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
+                      if (state.movieDetail.overview != '') ...[
+                        const SizedBox(height: 12),
+                        const Text(
+                          'あらすじ：',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          state.movieDetail.overview ?? '',
+                          style: const TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
                 ),
               ],
             ),

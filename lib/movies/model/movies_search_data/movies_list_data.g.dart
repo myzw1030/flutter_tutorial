@@ -9,7 +9,7 @@ part of 'movies_list_data.dart';
 _$MoviesListDataImpl _$$MoviesListDataImplFromJson(Map<String, dynamic> json) =>
     _$MoviesListDataImpl(
       id: json['id'] as int?,
-      originalTitle: json['original_title'] as String?,
+      title: json['title'] as String?,
       posterPath: json['poster_path'] as String?,
     );
 
@@ -17,6 +17,6 @@ Map<String, dynamic> _$$MoviesListDataImplToJson(
         _$MoviesListDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'original_title': instance.originalTitle,
+      'title': instance.title,
       'poster_path': instance.posterPath,
     };

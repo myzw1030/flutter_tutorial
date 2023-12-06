@@ -9,15 +9,25 @@ part 'tmdb_api_client.g.dart';
 abstract class TmdbApiClient {
   factory TmdbApiClient(Dio dio, {String baseUrl}) = _TmdbApiClient;
 
-  // 映画の一覧情報
-  @GET(
-    'search/movie?query={searchQuery}&language=ja-JA',
-  )
-  Future<MoviesSearchData> fetchMoviesItems(
-    @Path('searchQuery') String searchQuery,
-  );
+  // 検索時の映画の一覧情報
+  @GET('search/movie')
+  Future<MoviesSearchData> fetchSearchMoviesItems(
+    @Query('query') String searchQuery, {
+    @Query('page') int page = 1,
+    @Query('language') String language = 'ja-JA',
+  });
+
+  // 人気映画の一覧情報
+  @GET('movie/popular')
+  Future<MoviesSearchData> fetchPopularMoviesItems({
+    @Query('page') int page = 1,
+    @Query('language') String language = 'ja-JA',
+  });
 
   // 映画の詳細情報
-  @GET('movie/{movieId}?language=ja-JA')
-  Future<MovieDetailData> fetchMovieDetail(@Path('movieId') int movieId);
+  @GET('movie/{movieId}')
+  Future<MovieDetailData> fetchMovieDetail(
+    @Path('movieId') int movieId, {
+    @Query('language') String language = 'ja-JA',
+  });
 }

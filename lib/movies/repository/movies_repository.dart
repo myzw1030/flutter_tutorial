@@ -36,9 +36,19 @@ class MoviesRepository {
   MoviesRepository(this.tmdbApiClient);
   final TmdbApiClient tmdbApiClient;
 
-  // 映画一覧
-  Future<MoviesSearchData> fetchMoviesItems(String searchQuery) async {
-    return tmdbApiClient.fetchMoviesItems(searchQuery);
+  // 検索時の映画一覧
+  Future<MoviesSearchData> fetchSearchMoviesItems(
+    String searchQuery, {
+    int page = 1,
+  }) async {
+    return tmdbApiClient.fetchSearchMoviesItems(searchQuery, page: page);
+  }
+
+  // 人気映画の一覧
+  Future<MoviesSearchData> fetchPopularMoviesItems({
+    int page = 1,
+  }) async {
+    return tmdbApiClient.fetchPopularMoviesItems(page: page);
   }
 
   //映画詳細

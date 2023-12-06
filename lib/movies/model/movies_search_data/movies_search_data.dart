@@ -9,6 +9,7 @@ part 'movies_search_data.g.dart';
 class MoviesSearchData with _$MoviesSearchData {
   const factory MoviesSearchData({
     @Default(1) int page,
+    @JsonKey(name: 'total_pages') @Default(1) int totalPages,
     @Default(<MoviesListData>[]) List<MoviesListData> results,
   }) = _MoviesSearchData;
 

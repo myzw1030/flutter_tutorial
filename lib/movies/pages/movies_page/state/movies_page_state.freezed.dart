@@ -16,9 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MoviesPageState {
-  bool get isLoading => throw _privateConstructorUsedError;
+// 検索時のローディング
+  bool get isSearchLoading =>
+      throw _privateConstructorUsedError; // 無限スクロール時のローディング
+  bool get isMoreLoading => throw _privateConstructorUsedError; // 人気映画のフラグ
+  bool get isPopular => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
   MoviesSearchData get movies => throw _privateConstructorUsedError;
   String get searchQuery => throw _privateConstructorUsedError;
+  int get totalPages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MoviesPageStateCopyWith<MoviesPageState> get copyWith =>
@@ -31,7 +37,14 @@ abstract class $MoviesPageStateCopyWith<$Res> {
           MoviesPageState value, $Res Function(MoviesPageState) then) =
       _$MoviesPageStateCopyWithImpl<$Res, MoviesPageState>;
   @useResult
-  $Res call({bool isLoading, MoviesSearchData movies, String searchQuery});
+  $Res call(
+      {bool isSearchLoading,
+      bool isMoreLoading,
+      bool isPopular,
+      int page,
+      MoviesSearchData movies,
+      String searchQuery,
+      int totalPages});
 
   $MoviesSearchDataCopyWith<$Res> get movies;
 }
@@ -49,15 +62,31 @@ class _$MoviesPageStateCopyWithImpl<$Res, $Val extends MoviesPageState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
+    Object? isSearchLoading = null,
+    Object? isMoreLoading = null,
+    Object? isPopular = null,
+    Object? page = null,
     Object? movies = null,
     Object? searchQuery = null,
+    Object? totalPages = null,
   }) {
     return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
+      isSearchLoading: null == isSearchLoading
+          ? _value.isSearchLoading
+          : isSearchLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isMoreLoading: null == isMoreLoading
+          ? _value.isMoreLoading
+          : isMoreLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPopular: null == isPopular
+          ? _value.isPopular
+          : isPopular // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
       movies: null == movies
           ? _value.movies
           : movies // ignore: cast_nullable_to_non_nullable
@@ -66,6 +95,10 @@ class _$MoviesPageStateCopyWithImpl<$Res, $Val extends MoviesPageState>
           ? _value.searchQuery
           : searchQuery // ignore: cast_nullable_to_non_nullable
               as String,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -86,7 +119,14 @@ abstract class _$$MoviesPageStateImplCopyWith<$Res>
       __$$MoviesPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, MoviesSearchData movies, String searchQuery});
+  $Res call(
+      {bool isSearchLoading,
+      bool isMoreLoading,
+      bool isPopular,
+      int page,
+      MoviesSearchData movies,
+      String searchQuery,
+      int totalPages});
 
   @override
   $MoviesSearchDataCopyWith<$Res> get movies;
@@ -103,15 +143,31 @@ class __$$MoviesPageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
+    Object? isSearchLoading = null,
+    Object? isMoreLoading = null,
+    Object? isPopular = null,
+    Object? page = null,
     Object? movies = null,
     Object? searchQuery = null,
+    Object? totalPages = null,
   }) {
     return _then(_$MoviesPageStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
+      isSearchLoading: null == isSearchLoading
+          ? _value.isSearchLoading
+          : isSearchLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isMoreLoading: null == isMoreLoading
+          ? _value.isMoreLoading
+          : isMoreLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPopular: null == isPopular
+          ? _value.isPopular
+          : isPopular // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
       movies: null == movies
           ? _value.movies
           : movies // ignore: cast_nullable_to_non_nullable
@@ -120,6 +176,10 @@ class __$$MoviesPageStateImplCopyWithImpl<$Res>
           ? _value.searchQuery
           : searchQuery // ignore: cast_nullable_to_non_nullable
               as String,
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -128,23 +188,42 @@ class __$$MoviesPageStateImplCopyWithImpl<$Res>
 
 class _$MoviesPageStateImpl implements _MoviesPageState {
   const _$MoviesPageStateImpl(
-      {this.isLoading = false,
+      {this.isSearchLoading = false,
+      this.isMoreLoading = false,
+      this.isPopular = false,
+      this.page = 1,
       this.movies = const MoviesSearchData(),
-      this.searchQuery = ''});
+      this.searchQuery = '',
+      this.totalPages = 1});
 
+// 検索時のローディング
   @override
   @JsonKey()
-  final bool isLoading;
+  final bool isSearchLoading;
+// 無限スクロール時のローディング
+  @override
+  @JsonKey()
+  final bool isMoreLoading;
+// 人気映画のフラグ
+  @override
+  @JsonKey()
+  final bool isPopular;
+  @override
+  @JsonKey()
+  final int page;
   @override
   @JsonKey()
   final MoviesSearchData movies;
   @override
   @JsonKey()
   final String searchQuery;
+  @override
+  @JsonKey()
+  final int totalPages;
 
   @override
   String toString() {
-    return 'MoviesPageState(isLoading: $isLoading, movies: $movies, searchQuery: $searchQuery)';
+    return 'MoviesPageState(isSearchLoading: $isSearchLoading, isMoreLoading: $isMoreLoading, isPopular: $isPopular, page: $page, movies: $movies, searchQuery: $searchQuery, totalPages: $totalPages)';
   }
 
   @override
@@ -152,15 +231,23 @@ class _$MoviesPageStateImpl implements _MoviesPageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MoviesPageStateImpl &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
+            (identical(other.isSearchLoading, isSearchLoading) ||
+                other.isSearchLoading == isSearchLoading) &&
+            (identical(other.isMoreLoading, isMoreLoading) ||
+                other.isMoreLoading == isMoreLoading) &&
+            (identical(other.isPopular, isPopular) ||
+                other.isPopular == isPopular) &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.movies, movies) || other.movies == movies) &&
             (identical(other.searchQuery, searchQuery) ||
-                other.searchQuery == searchQuery));
+                other.searchQuery == searchQuery) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, movies, searchQuery);
+  int get hashCode => Object.hash(runtimeType, isSearchLoading, isMoreLoading,
+      isPopular, page, movies, searchQuery, totalPages);
 
   @JsonKey(ignore: true)
   @override
@@ -172,16 +259,28 @@ class _$MoviesPageStateImpl implements _MoviesPageState {
 
 abstract class _MoviesPageState implements MoviesPageState {
   const factory _MoviesPageState(
-      {final bool isLoading,
+      {final bool isSearchLoading,
+      final bool isMoreLoading,
+      final bool isPopular,
+      final int page,
       final MoviesSearchData movies,
-      final String searchQuery}) = _$MoviesPageStateImpl;
+      final String searchQuery,
+      final int totalPages}) = _$MoviesPageStateImpl;
 
+  @override // 検索時のローディング
+  bool get isSearchLoading;
+  @override // 無限スクロール時のローディング
+  bool get isMoreLoading;
+  @override // 人気映画のフラグ
+  bool get isPopular;
   @override
-  bool get isLoading;
+  int get page;
   @override
   MoviesSearchData get movies;
   @override
   String get searchQuery;
+  @override
+  int get totalPages;
   @override
   @JsonKey(ignore: true)
   _$$MoviesPageStateImplCopyWith<_$MoviesPageStateImpl> get copyWith =>

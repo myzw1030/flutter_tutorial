@@ -21,8 +21,7 @@ MoviesListData _$MoviesListDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MoviesListData {
   int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'original_title')
-  String? get originalTitle => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
 
@@ -40,7 +39,7 @@ abstract class $MoviesListDataCopyWith<$Res> {
   @useResult
   $Res call(
       {int? id,
-      @JsonKey(name: 'original_title') String? originalTitle,
+      String? title,
       @JsonKey(name: 'poster_path') String? posterPath});
 }
 
@@ -58,7 +57,7 @@ class _$MoviesListDataCopyWithImpl<$Res, $Val extends MoviesListData>
   @override
   $Res call({
     Object? id = freezed,
-    Object? originalTitle = freezed,
+    Object? title = freezed,
     Object? posterPath = freezed,
   }) {
     return _then(_value.copyWith(
@@ -66,9 +65,9 @@ class _$MoviesListDataCopyWithImpl<$Res, $Val extends MoviesListData>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      originalTitle: freezed == originalTitle
-          ? _value.originalTitle
-          : originalTitle // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       posterPath: freezed == posterPath
           ? _value.posterPath
@@ -88,7 +87,7 @@ abstract class _$$MoviesListDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {int? id,
-      @JsonKey(name: 'original_title') String? originalTitle,
+      String? title,
       @JsonKey(name: 'poster_path') String? posterPath});
 }
 
@@ -104,7 +103,7 @@ class __$$MoviesListDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? originalTitle = freezed,
+    Object? title = freezed,
     Object? posterPath = freezed,
   }) {
     return _then(_$MoviesListDataImpl(
@@ -112,9 +111,9 @@ class __$$MoviesListDataImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      originalTitle: freezed == originalTitle
-          ? _value.originalTitle
-          : originalTitle // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       posterPath: freezed == posterPath
           ? _value.posterPath
@@ -128,9 +127,7 @@ class __$$MoviesListDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MoviesListDataImpl extends _MoviesListData {
   const _$MoviesListDataImpl(
-      {this.id,
-      @JsonKey(name: 'original_title') this.originalTitle,
-      @JsonKey(name: 'poster_path') this.posterPath})
+      {this.id, this.title, @JsonKey(name: 'poster_path') this.posterPath})
       : super._();
 
   factory _$MoviesListDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -139,15 +136,14 @@ class _$MoviesListDataImpl extends _MoviesListData {
   @override
   final int? id;
   @override
-  @JsonKey(name: 'original_title')
-  final String? originalTitle;
+  final String? title;
   @override
   @JsonKey(name: 'poster_path')
   final String? posterPath;
 
   @override
   String toString() {
-    return 'MoviesListData(id: $id, originalTitle: $originalTitle, posterPath: $posterPath)';
+    return 'MoviesListData(id: $id, title: $title, posterPath: $posterPath)';
   }
 
   @override
@@ -156,15 +152,14 @@ class _$MoviesListDataImpl extends _MoviesListData {
         (other.runtimeType == runtimeType &&
             other is _$MoviesListDataImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.originalTitle, originalTitle) ||
-                other.originalTitle == originalTitle) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, originalTitle, posterPath);
+  int get hashCode => Object.hash(runtimeType, id, title, posterPath);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +179,7 @@ class _$MoviesListDataImpl extends _MoviesListData {
 abstract class _MoviesListData extends MoviesListData {
   const factory _MoviesListData(
           {final int? id,
-          @JsonKey(name: 'original_title') final String? originalTitle,
+          final String? title,
           @JsonKey(name: 'poster_path') final String? posterPath}) =
       _$MoviesListDataImpl;
   const _MoviesListData._() : super._();
@@ -195,8 +190,7 @@ abstract class _MoviesListData extends MoviesListData {
   @override
   int? get id;
   @override
-  @JsonKey(name: 'original_title')
-  String? get originalTitle;
+  String? get title;
   @override
   @JsonKey(name: 'poster_path')
   String? get posterPath;

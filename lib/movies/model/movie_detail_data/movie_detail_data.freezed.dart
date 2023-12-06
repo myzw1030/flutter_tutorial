@@ -22,8 +22,7 @@ MovieDetailData _$MovieDetailDataFromJson(Map<String, dynamic> json) {
 mixin _$MovieDetailData {
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'original_title')
-  String? get originalTitle => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   String? get overview => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
@@ -45,7 +44,7 @@ abstract class $MovieDetailDataCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'original_title') String? originalTitle,
+      String? title,
       String? overview,
       @JsonKey(name: 'poster_path') String? posterPath,
       @JsonKey(name: 'release_date') String? releaseDate,
@@ -66,7 +65,7 @@ class _$MovieDetailDataCopyWithImpl<$Res, $Val extends MovieDetailData>
   @override
   $Res call({
     Object? backdropPath = freezed,
-    Object? originalTitle = freezed,
+    Object? title = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
     Object? releaseDate = freezed,
@@ -77,9 +76,9 @@ class _$MovieDetailDataCopyWithImpl<$Res, $Val extends MovieDetailData>
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      originalTitle: freezed == originalTitle
-          ? _value.originalTitle
-          : originalTitle // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       overview: freezed == overview
           ? _value.overview
@@ -111,7 +110,7 @@ abstract class _$$MovieDetailDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'original_title') String? originalTitle,
+      String? title,
       String? overview,
       @JsonKey(name: 'poster_path') String? posterPath,
       @JsonKey(name: 'release_date') String? releaseDate,
@@ -130,7 +129,7 @@ class __$$MovieDetailDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? backdropPath = freezed,
-    Object? originalTitle = freezed,
+    Object? title = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
     Object? releaseDate = freezed,
@@ -141,9 +140,9 @@ class __$$MovieDetailDataImplCopyWithImpl<$Res>
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      originalTitle: freezed == originalTitle
-          ? _value.originalTitle
-          : originalTitle // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       overview: freezed == overview
           ? _value.overview
@@ -170,7 +169,7 @@ class __$$MovieDetailDataImplCopyWithImpl<$Res>
 class _$MovieDetailDataImpl extends _MovieDetailData {
   const _$MovieDetailDataImpl(
       {@JsonKey(name: 'backdrop_path') this.backdropPath,
-      @JsonKey(name: 'original_title') this.originalTitle,
+      this.title,
       this.overview,
       @JsonKey(name: 'poster_path') this.posterPath,
       @JsonKey(name: 'release_date') this.releaseDate,
@@ -184,8 +183,7 @@ class _$MovieDetailDataImpl extends _MovieDetailData {
   @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
   @override
-  @JsonKey(name: 'original_title')
-  final String? originalTitle;
+  final String? title;
   @override
   final String? overview;
   @override
@@ -199,7 +197,7 @@ class _$MovieDetailDataImpl extends _MovieDetailData {
 
   @override
   String toString() {
-    return 'MovieDetailData(backdropPath: $backdropPath, originalTitle: $originalTitle, overview: $overview, posterPath: $posterPath, releaseDate: $releaseDate, runtime: $runtime)';
+    return 'MovieDetailData(backdropPath: $backdropPath, title: $title, overview: $overview, posterPath: $posterPath, releaseDate: $releaseDate, runtime: $runtime)';
   }
 
   @override
@@ -209,8 +207,7 @@ class _$MovieDetailDataImpl extends _MovieDetailData {
             other is _$MovieDetailDataImpl &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
-            (identical(other.originalTitle, originalTitle) ||
-                other.originalTitle == originalTitle) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.overview, overview) ||
                 other.overview == overview) &&
             (identical(other.posterPath, posterPath) ||
@@ -222,8 +219,8 @@ class _$MovieDetailDataImpl extends _MovieDetailData {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, backdropPath, originalTitle,
-      overview, posterPath, releaseDate, runtime);
+  int get hashCode => Object.hash(runtimeType, backdropPath, title, overview,
+      posterPath, releaseDate, runtime);
 
   @JsonKey(ignore: true)
   @override
@@ -243,7 +240,7 @@ class _$MovieDetailDataImpl extends _MovieDetailData {
 abstract class _MovieDetailData extends MovieDetailData {
   const factory _MovieDetailData(
       {@JsonKey(name: 'backdrop_path') final String? backdropPath,
-      @JsonKey(name: 'original_title') final String? originalTitle,
+      final String? title,
       final String? overview,
       @JsonKey(name: 'poster_path') final String? posterPath,
       @JsonKey(name: 'release_date') final String? releaseDate,
@@ -257,8 +254,7 @@ abstract class _MovieDetailData extends MovieDetailData {
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath;
   @override
-  @JsonKey(name: 'original_title')
-  String? get originalTitle;
+  String? get title;
   @override
   String? get overview;
   @override

@@ -21,9 +21,17 @@ class _TmdbApiClient implements TmdbApiClient {
   String? baseUrl;
 
   @override
-  Future<MoviesSearchData> fetchMoviesItems(String searchQuery) async {
+  Future<MoviesSearchData> fetchSearchMoviesItems(
+    String searchQuery, {
+    int page = 1,
+    String language = 'ja-JA',
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'query': searchQuery,
+      r'page': page,
+      r'language': language,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -34,7 +42,7 @@ class _TmdbApiClient implements TmdbApiClient {
     )
             .compose(
               _dio.options,
-              'search/movie?query=${searchQuery}&language=ja-JA',
+              'search/movie',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -48,9 +56,45 @@ class _TmdbApiClient implements TmdbApiClient {
   }
 
   @override
-  Future<MovieDetailData> fetchMovieDetail(int movieId) async {
+  Future<MoviesSearchData> fetchPopularMoviesItems({
+    int page = 1,
+    String language = 'ja-JA',
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'language': language,
+    };
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<MoviesSearchData>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'movie/popular',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = MoviesSearchData.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<MovieDetailData> fetchMovieDetail(
+    int movieId, {
+    String language = 'ja-JA',
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'language': language};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -61,7 +105,7 @@ class _TmdbApiClient implements TmdbApiClient {
     )
             .compose(
               _dio.options,
-              'movie/${movieId}?language=ja-JA',
+              'movie/${movieId}',
               queryParameters: queryParameters,
               data: _data,
             )

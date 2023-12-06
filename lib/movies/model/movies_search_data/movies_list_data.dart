@@ -8,7 +8,7 @@ part 'movies_list_data.g.dart';
 class MoviesListData with _$MoviesListData {
   const factory MoviesListData({
     int? id,
-    @JsonKey(name: 'original_title') String? originalTitle,
+    String? title,
     @JsonKey(name: 'poster_path') String? posterPath,
   }) = _MoviesListData;
 
