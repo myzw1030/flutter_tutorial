@@ -46,9 +46,9 @@ class MoviesPageState extends ConsumerState<MoviesPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(moviesPageProvider);
-    return SafeArea(
-      child: Scaffold(
-        body: CustomScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
           controller: scrollController,
           slivers: [
             const _MoviesSearch(),

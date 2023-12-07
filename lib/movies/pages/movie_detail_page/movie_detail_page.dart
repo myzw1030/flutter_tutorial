@@ -14,12 +14,10 @@ class MovieDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: const _AppBar(),
-        body: _DetailItem(movieId: movieId),
-      ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: const _AppBar(),
+      body: _DetailItem(movieId: movieId),
     );
   }
 }
@@ -36,7 +34,7 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
         icon: const Icon(
           Icons.arrow_back_ios_rounded,
           color: Colors.white,
-          size: 32,
+          size: 36,
         ),
         onPressed: () {
           Navigator.of(context).pop();
@@ -101,7 +99,8 @@ class _DetailItem extends ConsumerWidget {
             children: [
               Image.network(
                 state.movieDetail.fullBackdropPath,
-                fit: BoxFit.contain,
+                height: MediaQuery.sizeOf(context).width * 0.7,
+                fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return Image.asset(
                     'assets/404_image.png',
