@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tutorial/movies/pages/movie_detail_page/movie_detail_page_view_model.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class MovieDetailPage extends StatelessWidget {
   const MovieDetailPage({
@@ -84,7 +85,13 @@ class _DetailItem extends ConsumerWidget {
 
     // ローディング
     if (state.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(
+        child: LoadingAnimationWidget.flickr(
+          leftDotColor: Colors.greenAccent,
+          rightDotColor: Colors.redAccent,
+          size: 80,
+        ),
+      );
     }
     return SingleChildScrollView(
       child: Column(

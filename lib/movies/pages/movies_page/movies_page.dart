@@ -4,6 +4,7 @@ import 'package:flutter_tutorial/movies/model/movies_search_data/movies_list_dat
 
 import 'package:flutter_tutorial/movies/pages/movie_detail_page/movie_detail_page.dart';
 import 'package:flutter_tutorial/movies/pages/movies_page/movies_page_view_model.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class MoviesPage extends ConsumerStatefulWidget {
   const MoviesPage({super.key});
@@ -31,10 +32,7 @@ class MoviesPageState extends ConsumerState<MoviesPage> {
   @override
   void initState() {
     super.initState();
-    // 初回ビルドが終了するまで状態変更を待つことで、ビルド中に状態変更してクラッシュすることを防ぐ
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(moviesPageProvider.notifier).fetchPopularMoviesItems();
-    });
+
     // スクロールリスナー
     scrollControllerListener();
   }
@@ -59,7 +57,7 @@ class MoviesPageState extends ConsumerState<MoviesPage> {
             if (state.isMoreLoading)
               const SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(10),
                   child: Center(
                     child: CircularProgressIndicator(),
                   ),
@@ -94,6 +92,7 @@ class _MoviesSearchState extends ConsumerState<_MoviesSearch> {
   // 検索
   void _submitSearch() {
     final searchText = _textController.text;
+
     ref.read(moviesPageProvider.notifier).searchMovies(searchText);
   }
 
@@ -178,15 +177,28 @@ class _MoviesList extends ConsumerStatefulWidget {
 
 class _MoviesListState extends ConsumerState<_MoviesList> {
   @override
+  void initState() {
+    super.initState();
+    // 初回ビルドが終了するまで状態変更を待つことで、ビルド中に状態変更してクラッシュすることを防ぐ
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // 初回は人気映画を表示する
+      ref.read(moviesPageProvider.notifier).fetchPopularMoviesItems();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final state = ref.watch(moviesPageProvider);
     final moviesItem = state.movies.results;
 
     // 検索時のローディング
     if (state.isSearchLoading) {
-      return const SliverFillRemaining(
+      return SliverFillRemaining(
         child: Center(
-          child: CircularProgressIndicator(),
+          child: LoadingAnimationWidget.bouncingBall(
+            color: Colors.red,
+            size: 80,
+          ),
         ),
       );
     }
