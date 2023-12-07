@@ -38,6 +38,7 @@ class MoviesPageViewModel extends StateNotifier<MoviesPageState> {
     } else {
       state = state.copyWith(
         isSearchLoading: false,
+        movies: moviesItems,
       );
     }
   }
@@ -64,6 +65,7 @@ class MoviesPageViewModel extends StateNotifier<MoviesPageState> {
     } else {
       state = state.copyWith(
         isSearchLoading: false,
+        movies: moviesItems,
       );
     }
   }

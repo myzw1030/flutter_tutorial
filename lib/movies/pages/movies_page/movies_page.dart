@@ -55,12 +55,14 @@ class MoviesPageState extends ConsumerState<MoviesPage> {
           slivers: [
             const _MoviesSearch(),
             const _MoviesList(),
+            // 無限スクロール用のローディング
             if (state.isMoreLoading)
-              // ローディングインジケーターを表示するSliver
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.all(8),
-                  child: Center(child: CircularProgressIndicator()),
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
               ),
           ],
@@ -201,43 +203,44 @@ class _MoviesListState extends ConsumerState<_MoviesList> {
           ),
         ),
       );
-    }
-    return SliverPadding(
-      padding: const EdgeInsets.only(
-        right: 16,
-        bottom: 16,
-        left: 16,
-      ),
-      sliver: SliverGrid(
-        delegate: SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            final moviesItemIndex = moviesItem[index];
-            return InkWell(
-              onTap: () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<MovieDetailPage>(
-                    builder: (context) => MovieDetailPage(
-                      movieId: moviesItemIndex.id ?? 0,
+    } else {
+      return SliverPadding(
+        padding: const EdgeInsets.only(
+          right: 16,
+          bottom: 16,
+          left: 16,
+        ),
+        sliver: SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              final moviesItemIndex = moviesItem[index];
+              return InkWell(
+                onTap: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<MovieDetailPage>(
+                      builder: (context) => MovieDetailPage(
+                        movieId: moviesItemIndex.id ?? 0,
+                      ),
                     ),
                   ),
+                },
+                child: _ListCard(
+                  moviesItems: moviesItemIndex,
                 ),
-              },
-              child: _ListCard(
-                moviesItems: moviesItemIndex,
-              ),
-            );
-          },
-          childCount: moviesItem.length,
+              );
+            },
+            childCount: moviesItem.length,
+          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 16,
+            childAspectRatio: 0.6,
+          ),
         ),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 16,
-          childAspectRatio: 0.6,
-        ),
-      ),
-    );
+      );
+    }
   }
 }
 

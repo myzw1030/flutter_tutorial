@@ -117,8 +117,8 @@ class _DetailItem extends ConsumerWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 12,
+              vertical: 20,
+              horizontal: 14,
             ),
             child: Column(
               children: [
@@ -129,7 +129,7 @@ class _DetailItem extends ConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 20),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Column(
@@ -144,7 +144,7 @@ class _DetailItem extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 20),
                       Text(
                         '上映時間：${formatRunTime(state.movieDetail.runtime)}',
                         style: const TextStyle(
@@ -153,7 +153,7 @@ class _DetailItem extends ConsumerWidget {
                         ),
                       ),
                       if (state.movieDetail.overview != '') ...[
-                        const SizedBox(height: 12),
+                        const SizedBox(height: 20),
                         const Text(
                           'あらすじ：',
                           style: TextStyle(
