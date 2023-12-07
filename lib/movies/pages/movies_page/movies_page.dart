@@ -92,7 +92,6 @@ class _MoviesSearchState extends ConsumerState<_MoviesSearch> {
   // 検索
   void _submitSearch() {
     final searchText = _textController.text;
-
     ref.read(moviesPageProvider.notifier).searchMovies(searchText);
   }
 
