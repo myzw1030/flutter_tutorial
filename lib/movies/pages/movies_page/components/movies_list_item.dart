@@ -1,7 +1,7 @@
-// 映画一覧のリストアイテム
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/movies/model/movies_search_data/movies_list_data.dart';
 
+// 映画一覧のリストアイテム
 class MoviesListItem extends StatelessWidget {
   const MoviesListItem({
     super.key,
