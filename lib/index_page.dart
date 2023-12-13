@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/movies/pages/movies_page/movies_page.dart';
 import 'package:flutter_tutorial/drift/pages/todo_list_page/todo_list_page.dart';
 import 'package:flutter_tutorial/qiita/view/qiita_page.dart';
 import 'package:flutter_tutorial/async/async_page.dart';
@@ -49,6 +50,10 @@ class IndexPage extends StatelessWidget {
             PageButton(
               text: 'Drift',
               widget: TodoListPage(),
+            ),
+            PageButton(
+              text: 'MoviesApp',
+              widget: MoviesPage(),
             ),
           ],
         ),
