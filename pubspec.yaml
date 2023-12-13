@@ -49,6 +49,7 @@ dependencies:
   shared_preferences: ^2.2.2
   envied: ^0.5.2
   loading_animation_widget: ^1.2.0+4
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:

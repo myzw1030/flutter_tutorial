@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/movies/model/movies_search_data/movies_list_data.dart';
 
@@ -20,15 +21,13 @@ class MoviesListItem extends StatelessWidget {
           child: Card(
             clipBehavior: Clip.hardEdge,
             elevation: 4,
-            child: Image.network(
-              moviesItems.fullPosterPath,
+            child: CachedNetworkImage(
+              imageUrl: moviesItems.fullPosterPath,
               fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  'assets/404_image.png',
-                  fit: BoxFit.contain,
-                );
-              },
+              errorWidget: (context, url, error) => Image.asset(
+                'assets/404_image.png',
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ),

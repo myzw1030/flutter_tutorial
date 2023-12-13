@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tutorial/movies/pages/movie_detail_page/movie_detail_page_view_model.dart';
@@ -54,27 +55,23 @@ class MovieDetailItem extends ConsumerWidget {
           Stack(
             alignment: Alignment.bottomLeft,
             children: [
-              Image.network(
-                state.movieDetail.fullBackdropPath,
+              CachedNetworkImage(
+                imageUrl: state.movieDetail.fullBackdropPath,
                 height: MediaQuery.sizeOf(context).width * 0.7,
                 fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Image.asset(
-                    'assets/404_image.png',
-                    fit: BoxFit.cover,
-                  );
-                },
+                errorWidget: (context, url, error) => Image.asset(
+                  'assets/404_image.png',
+                  fit: BoxFit.cover,
+                ),
               ),
-              Image.network(
-                state.movieDetail.fullPosterPath,
+              CachedNetworkImage(
+                imageUrl: state.movieDetail.fullPosterPath,
                 fit: BoxFit.contain,
                 width: MediaQuery.sizeOf(context).width / 3.5,
-                errorBuilder: (context, error, stackTrace) {
-                  return Image.asset(
-                    'assets/404_image.png',
-                    fit: BoxFit.cover,
-                  );
-                },
+                errorWidget: (context, url, error) => Image.asset(
+                  'assets/404_image.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ],
           ),
